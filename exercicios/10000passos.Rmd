@@ -1,0 +1,84 @@
+# Atividade 1
+
+
+Você e seus colegas de ME111 decidem contar passos ao longo do dia com o uso de um pedômetro. No entanto, cada colega tem um pedômetro diferente: aplicativos diferentes de celulares de diversas marcas, pedômetros de marcas diferentes, fitbit, etc... 
+
+
+
+**Parte 1:** Os pedômetros não são 100% precisos, portanto espera-se que haja alguma diferença, para um número fixo de passos dados, no número de passos registrados com o mesmo pedômetro múltiplas vezes. Você irá investigar este problema com o pedômetro escolhido. Considere problemas que podem afetar a medição: posição do pedômetro no corpo, superfície de caminhada, esbarrões, tropeços, etc... Escolha um lugar sem muitas pessoas e dê 200 passos em cada tentativa, mantenha sempre o pedômetro no mesmo lugar do seu corpo em todas as tentativas; anote em um papel os seguintes dados:
+
+* RA
+* Sistema operacional do celular
+* Nome do aplicativo utilizado
+* Posição do pedômetro no corpo
+* Tentativa 1 - número inicial de passos mostrado no pedômetro
+* Tentativa 1 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 1
+* Tentativa 2 - número inicial de passos mostrado no pedômetro
+* Tentativa 2 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 2
+* Tentativa 3 - número inicial de passos mostrado no pedômetro
+* Tentativa 3 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 3
+* Tentativa 4 - número inicial de passos mostrado no pedômetro
+* Tentativa 4 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 4
+* Tentativa 5 - número inicial de passos mostrado no pedômetro
+* Tentativa 5 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 5
+* Tentativa 6 - número inicial de passos mostrado no pedômetro
+* Tentativa 6 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 6
+* Tentativa 7 - número inicial de passos mostrado no pedômetro
+* Tentativa 7 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 7
+* Tentativa 8 - número inicial de passos mostrado no pedômetro
+* Tentativa 8 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 8
+* Tentativa 9 - número inicial de passos mostrado no pedômetro
+* Tentativa 9 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 9
+* Tentativa 10 - número inicial de passos mostrado no pedômetro
+* Tentativa 10 - número final de passos mostrado no pedômetro
+* Intercorrências na tentativa 10
+
+Envie uma cópia digital da sua anotação em papel através do Moodle.
+
+**Parte 2:** Como apresentar de maneira resumida e informativa os dados obtidos? Você pode utilizar mais de uma maneira, dependendo do que deseja salientar. Descreva o gráfico, indicando como ele ajuda a observar algo de seu interesse nesses dados.
+
+```{r,echo=FALSE,fig.align='center'}
+# coloque seu codigo aqui
+```
+
+**Parte 3:** Cada aluno fez 10 tentativas. Selecione 5 colegas e faça, no mesmo gráfico, um boxplot para as 10 tentativas de cada colega. 
+
+```{r,echo=FALSE,fig.align='center'}
+# coloque seu codigo aqui
+```
+
+**Parte 4:** Considerando agora todos os colegas e todas as medidas, calcule o valor absoluto da diferença do total de passos medido e 200. Resuma esses valores das 10 tentativas de cada um usando a média, a mediana, o máximo e o mínimo. Preencha as frases a seguir:
+
+* Se usarmos o máximo, o maior diferença (em valor absoluto) do valor medido para o valor real (200) foi XXXX do aluno RA XXXXXX.
+
+* Se usarmos o mínimo, o maior diferença (em valor absoluto) do valor medido para o valor real (200) foi XXXX do aluno RA XXXXXX.
+
+* Se usarmos a média, o maior diferença (em valor absoluto) do valor medido para o valor real (200) foi XXXX do aluno RA XXXXXX.
+
+* Se usarmos a mediana, o maior diferença (em valor absoluto) do valor medido para o valor real (200) foi XXXX do aluno RA XXXXXX.
+
+**Parte 5:** Considere agora apenas a **mediana** do valor absoluto da diferença entre o total medido e 200 das tentativas de cada aluno.
+
+* Construa um gráfico para descrever a distribuição das medianas.
+
+* Indique a mediana das **suas** 10 tentativas no gráfico, usando uma cor diferente.
+
+* Quantos alunos têm mediana acima da sua? 
+
+* Quantos alunos têm mediana abaixo da sua? 
+
+* Se vocês estivessem competindo para saber quem dá mais passos ao longo do dia, você se sentiria privilegiado ou prejudicado pelo seu pedômetro escolhido? Justifique.
+
+* Se todos os alunos estivessem utilizando um pedômetro de alta precisão, como isso afetaria a distribuição das medianas?
+
+* Será que a imprecisão é parecida entre homens e mulheres? Apresente pelo menos uma figura que auxilie alguma conclusão sobre isso e discuta com base na figura.
+

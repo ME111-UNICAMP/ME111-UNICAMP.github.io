@@ -16,7 +16,7 @@ Os demais grupos presentes deverão participar ativamente durante a apresentaç�
 
 
 
-* [Teste 1](10000passos.html)
+* [Teste 1 - versao html](10000passos.html) ([versao Rmd](10000passos.Rmd))
 
 
 
