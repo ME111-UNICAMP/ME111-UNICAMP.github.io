@@ -41,11 +41,11 @@ A avaliação se dará através de um Projeto Final e Atividades (testinhos/ativ
 
 MG = 0.25 PF + 0.75 A
 
-Se MG maior ou igual a 5, o aluno está aprovado e MF = MG
+Se MG maior ou igual a 6, o aluno está aprovado e MF = MG
 
-Se MG < 5 e frequência pelo menos 75%, o aluno deverá fazer exame e MF = (MG + EF)/2
+Se MG < 6 e frequência pelo menos 75%, o aluno deverá fazer exame e MF = (MG + EF)/2
 
-Se MG < 5 e frequência inferior a 75%, o aluno está reprovado e MF = MG
+Se MG < 6 e frequência inferior a 75%, o aluno está reprovado e MF = MG
 
 Frequência mínima para aprovação: 75% 
 
