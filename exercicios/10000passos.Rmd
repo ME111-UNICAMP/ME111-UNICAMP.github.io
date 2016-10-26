@@ -1,5 +1,6 @@
-# Atividade 1
+# 10000 passos
 
+**Esta atividade deverá ser feita individualmente.**
 
 Você e seus colegas de ME111 decidem contar passos ao longo do dia com o uso de um pedômetro. No entanto, cada colega tem um pedômetro diferente: aplicativos diferentes de celulares de diversas marcas, pedômetros de marcas diferentes, fitbit, etc... 
 
