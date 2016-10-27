@@ -5,6 +5,37 @@ permalink: /aulas/
 ---
 
 
+## Instalando o R e o RStudio
+
+O R e o RStudio já estão instalados nos laboratórios do IMECC.
+
+Para os alunos que desejarem instalar em suas máquinas pessoais, seguem instruções a seguir.
+
+* Primeiro você deve baixar o arquivo de instalação correspondente ao seu sistema operacional: http://cran.r-project.org
+* Siga as instruções do site para finalizar a instalação do R.
+* Agora você pode instalar o RStudio: http://www.rstudio.com/products/rstudio/download/
+
+**Importante**: a codificação de caracteres de acentuação é diferente quando usamos sistema Windows, Mac, Linux. Portanto, para não ter problema, siga os passos a seguir ANTES de abrir algum documendo .Rmd ou .Rnw no RStudio. 
+
+Para Windows:
+
+* Abra o RStudio
+* Tools -> Global Options
+* Na caixa Default text encoding clique em Change
+* Selecione UTF-8
+* Selecione Apply e depois Ok
+* Agora você pode abrir o .Rmd do enunciado sem problemas de acentuação.
+
+Para Mac:
+
+* Abra o RStudio
+* Preferences
+* Na caixa Default text encoding clique em Change
+* Selecione UTF-8
+* Selecione Apply e depois Ok
+* Agora você pode abrir o .Rmd do enunciado sem problemas de acentuação.
+* Use SEMPRE UTF-8 durante o curso.
+
 
 ## Estatística Descritiva
 
