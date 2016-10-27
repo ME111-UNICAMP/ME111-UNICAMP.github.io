@@ -1,0 +1,37 @@
+## Exercício 1
+
+
+No Laboratório 1, você recriou algumas das análises preliminares dos dados de batismo de Arbuthnot. Neste exercício, sua tarefa consiste em repetir alguns passos vistos no laboratório, mas usando os registros de nascimento do Brasil entre os anos 1984 e 2011. 
+
+Os dados foram obtidos através do IBGE:
+
+* [Nascidos vivos ocorridos e registrados no ano por sexo (1984-2002)](http://seriesestatisticas.ibge.gov.br/series.aspx?no=1&op=1&vcodigo=RC65&t=nascidos-vivos-ocorridos-registrados-ano-sexo)
+
+* [Nascidos vivos ocorridos e registrados no ano por sexo (2003-2011)](http://seriesestatisticas.ibge.gov.br/series.aspx?no=1&op=1&vcodigo=RC67&t=nascidos-vivos-ocorridos-ano-sexo)
+
+Para começar, faça o download da [planilha](https://www.dropbox.com/s/p3pued6byywpb4z/1984-2011.csv?dl=0) contendo os dados. Salve na mesma pasta que contém o arquivo .Rmd deste relatório.
+
+Para importar os dados da planilha para o R, execute o comando a seguir:
+
+```{r}
+dados <- read.csv("1984-2011.csv",header=TRUE)
+```
+1. Quais são as dimensões do conjunto de dados e quais são os nomes das colunas ou variáveis?
+
+Os dados têm `r dim(dados)[1]` linhas e `r dim(dados)[2]` colunas.
+
+Os nomes das variáveis são: `r names(dados)`.
+
+2. Como estas contagens se comparam aos dados de Arbuthnot? Eles estão numa escala similar?
+
+3. A observação de Arbuthnot de que os meninos nascem numa proporção maior que as meninas se mantém no Brasil?
+
+4. Crie um gráfico que mostre a razão de meninos para meninas para cada ano do conjunto de dados. O que você pode verificar?
+
+5. Em qual ano se verifica o maior número de nascimentos no Brasil? 
+
+
+Você pode utilizar os arquivos de ajuda ou o [cartão de referência do R](http://cran.r-project.org/doc/contrib/Short-refcard.pdf) para encontrar comandos úteis. 
+
+
+Para ler mais sobre uma análise da razão entre os sexos nos nascimentos, mas feita nos Estados Unidos, confira a [pesquisa](http://www.cdc.gov/nchs/data/nvsr/nvsr53/nvsr53_20.pdf) realizada pelo [Centro de Controle de Doenças (Center For Disease Control)](http://www.cdc.gov/). 

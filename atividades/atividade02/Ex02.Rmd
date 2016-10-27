@@ -1,0 +1,28 @@
+## Exercício 2
+
+
+Carregue os dados descritos no Laboratório 2 para responder às seguintes questões.
+
+```{r}
+source("http://www.openintro.org/stat/data/cdc.R")
+```
+
+
+
+1. Crie um gráfico de dispersão da variável peso (**weight**) em relação ao peso desejado (**wtdesire**). Descreva a relação entre essas duas variáveis.
+
+
+
+Vamos considerar uma nova variável: a diferença entre o peso desejado (**wtdesire**) e o peso atual (**weight**). Crie esta nova variável subtraindo as duas colunas na base de dados e atribuindo-as a um novo objeto chamado **wdiff**.
+
+
+2. Que tipo de dado está contido na variável **wdiff**? Se uma observação de **wdiff** é 0, o que isso implica com relação ao peso atual e desejado de uma pessoas? E se o valor de **wdiff** for positivo ou negativo?
+
+3. Descreva a distribuição de **wdiff** em termos de sua medida central, variação e distribuição, incluindo algum gráfico que você achar conveniente para este objetivo. O que isso nos diz sobre como as pessoas se sentem a respeito do seu peso atual?
+
+
+4. Utilizando sumários numéricos separadamente para homens e mulheres e um gráfico contendo um boxplot para homens e outro para mulheres lado a lado, determine se homens tendem a ver seu peso diferentemente das mulheres.
+
+
+5. Encontre a média e o desvio padrão de **weight** e determine qual a proporção de pessoas que estão um desvio padrão acima da média.
+
