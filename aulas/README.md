@@ -1,6 +1,5 @@
-# ME414 - Estatística para Experimentalistas
+# ME111 - Laboratório de Estatística
 
 ## Departamento de Estatística - IMECC - Unicamp
 
-Slides das aulas preparados pelos professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho.
-
+Material pela professora Samara Kiih

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Programa
+title: Material
 permalink: /aulas/
 ---
 
