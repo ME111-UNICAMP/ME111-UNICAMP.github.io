@@ -9,7 +9,7 @@ Os dados foram obtidos através do IBGE:
 
 * [Nascidos vivos ocorridos e registrados no ano por sexo (2003-2011)](http://seriesestatisticas.ibge.gov.br/series.aspx?no=1&op=1&vcodigo=RC67&t=nascidos-vivos-ocorridos-ano-sexo)
 
-Para começar, faça o download da [planilha](atividades01/1984-2011.csv) contendo os dados. Salve na mesma pasta que contém o arquivo .Rmd deste relatório.
+Para começar, faça o download da [planilha](1984-2011.csv) contendo os dados. Salve na mesma pasta que contém o arquivo .Rmd deste relatório.
 
 Para importar os dados da planilha para o R, execute o comando a seguir:
 
