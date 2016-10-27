@@ -4,6 +4,9 @@ title: Material
 permalink: /aulas/
 ---
 
+## Profissão de Estatístico
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/knYzFmPL0b8" frameborder="0" allowfullscreen></iframe>
 
 ## Instalando o R e o RStudio
 
@@ -38,9 +41,9 @@ Para Mac:
 
 ## Primeiros passos no R
 
-[DataCamp](https://www.datacamp.com/courses?learn=r_programming)
-[Code School - Try R](http://tryr.codeschool.com/)
-[DataCamp - Intermidiate R](https://www.datacamp.com/courses/intermediate-r)
+* [DataCamp](https://www.datacamp.com/courses?learn=r_programming)
+* [Code School - Try R](http://tryr.codeschool.com/)
+* [DataCamp - Intermidiate R](https://www.datacamp.com/courses/intermediate-r)
 
 
 
