@@ -51,7 +51,7 @@ Para Mac:
 * [DataCamp](https://www.datacamp.com/courses?learn=r_programming)
 * [Code School - Try R](http://tryr.codeschool.com/)
 * [DataCamp - Intermidiate R](https://www.datacamp.com/courses/intermediate-r)
-
+* [Material da Profa. Laura Rifo](http://www.ime.unicamp.br/~laurarifo/me093/AL/)
 
 
 ## Estatística Descritiva
