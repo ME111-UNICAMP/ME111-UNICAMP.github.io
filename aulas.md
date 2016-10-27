@@ -64,11 +64,8 @@ Para Mac:
 [R Markdown](http://rmarkdown.rstudio.com/) é um editor de texto que permite a criação de documentos, apresentações e relatórios de maneira dinâmica a partir do R. Combina a sintaxe de formatação de texto markdown com linhas de comando do R, permitindo que resultados do R sejam incorporados diretamente no documento.
 
 * [Get started](http://rmarkdown.rstudio.com/lesson-1.html)
-
 * [Tutorial R Markdown](http://www.markdowntutorial.com/)
-
 * [Cheat Sheet](https://www.rstudio.com/resources/cheatsheets/)
-
 * [DataCamp - Reporting with R Markdown](https://www.datacamp.com/courses/reporting-with-r-markdown)
 
 ## Estatística Descritiva
