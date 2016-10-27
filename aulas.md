@@ -36,6 +36,13 @@ Para Mac:
 * Agora você pode abrir o .Rmd do enunciado sem problemas de acentuação.
 * Use SEMPRE UTF-8 durante o curso.
 
+## Primeiros passos no R
+
+[DataCamp](https://www.datacamp.com/courses?learn=r_programming)
+[Code School - Try R](http://tryr.codeschool.com/)
+[DataCamp - Intermidiate R](https://www.datacamp.com/courses/intermediate-r)
+
+
 
 ## Estatística Descritiva
 
