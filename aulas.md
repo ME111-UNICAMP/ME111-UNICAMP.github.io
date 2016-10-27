@@ -8,6 +8,13 @@ permalink: /aulas/
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/knYzFmPL0b8" frameborder="0" allowfullscreen></iframe>
 
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wV0Ks7aS7YI" frameborder="0" allowfullscreen></iframe>
+
+[Entrevista com Doris Fontes](http://www.manipulandodados.com.br/2015/02/mercado-de-trabalho-para-estatisticos-entrevista-Doris-Fontes-Conre.html)
+
+[Área promissoras](http://exame.abril.com.br/carreira/noticias/as-5-areas-mais-promissoras-para-os-estatisticos)
+
+
 ## Instalando o R e o RStudio
 
 O R e o RStudio já estão instalados nos laboratórios do IMECC.
