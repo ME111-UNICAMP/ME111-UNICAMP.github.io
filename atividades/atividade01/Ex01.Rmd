@@ -1,7 +1,7 @@
 ## Exercício 1
 
 
-No Laboratório 1, você recriou algumas das análises preliminares dos dados de batismo de Arbuthnot. Neste exercício, sua tarefa consiste em repetir alguns passos vistos no laboratório, mas usando os registros de nascimento do Brasil entre os anos 1984 e 2011. 
+Na Atividade 1, você recriou algumas das análises preliminares dos dados de batismo de Arbuthnot. Neste exercício, sua tarefa consiste em repetir alguns passos vistos no laboratório, mas usando os registros de nascimento do Brasil entre os anos 1984 e 2011. 
 
 Os dados foram obtidos através do IBGE:
 

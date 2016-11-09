@@ -1,7 +1,7 @@
 ## Exercício 2
 
 
-Carregue os dados descritos no Laboratório 2 para responder às seguintes questões.
+Carregue os dados descritos na Atividade 2 para responder às seguintes questões.
 
 ```{r}
 source("http://www.openintro.org/stat/data/cdc.R")

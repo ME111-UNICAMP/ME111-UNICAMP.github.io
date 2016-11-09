@@ -14,7 +14,7 @@ permalink: /about/
  * Sobre abono de faltas, consulte o [regimento](http://www.dac.unicamp.br/portal/grad/regimento/capitulo_v/secao_x/).
  * O aluno deverá proceder de forma respeitosa e honesta durante as provas bem como na resolução de qualquer outra atividade que seja parte da avaliação do curso.
  * O login usado para acessar o Moodle é intransferível. Capítulo VI, artigo 59: [http://www.pg.unicamp.br/mostra_norma.php?id_norma=3256](http://www.pg.unicamp.br/mostra_norma.php?id_norma=3256)
-* Grupos serão formados ao acaso para desenvolver atividades em cada aula. Alunos deverão estar presentes no início da aula para serem incluídos em algum grupo.
+* Algumas atividades deverão ser feitas em grupo. Alunos deverão estar presentes no início da aula para serem incluídos em algum grupo, não será possível inclusão de aluno(s) posteriormente.
 * Casos não contemplados neste documento, serão devidamente avaliados. 
 
 ### Bibliografia
