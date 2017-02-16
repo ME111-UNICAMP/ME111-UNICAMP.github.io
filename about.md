@@ -8,6 +8,8 @@ permalink: /about/
 * Professora: [Samara F. Kiihl](http://samarafk.github.io/)
  * Horário de aula: Turma A - Segunda 14-16 IM10; Turma B - Quarta 14-16 IM10 ([Google Agenda](https://calendar.google.com/calendar/embed?src=1m675n4lf9uaj4kdi0f7vmtbi8%40group.calendar.google.com&ctz=America/Sao_Paulo
 ))
+ * PED: Luis Francisco Prado Pinheiro F. Salles RA 162334
+ * PAD: Leonardo Torin RA 156229
  * Atendimento: 
  * Comunicação por email: APENAS para meu email samara@ime.unicamp.br, APENAS com [ME111] especificado no assunto da mensagem, APENAS remetentes dos emails dac.unicamp.br ou g.unicamp.br serão lidos. Qualquer outra mensagem de aluno sem essas especificações [será ignorada](images/hqdefault.jpg).
  * Atividades e notas estão disponíveis no Moodle: [ME111-A](http://www.ggte.unicamp.br/eam/course/view.php?id=3619) e [ME111-B](http://www.ggte.unicamp.br/eam/course/view.php?id=3620). Você deverá logar com o mesmo usuário e senha que usar para acessar os serviços da DAC. 
@@ -19,11 +21,11 @@ permalink: /about/
 
 ### Bibliografia
 
+* Wardrop, R. L. (1995). Statistics: Learning in the presence of variation.
 * Ross, S. M. (2010). [Introductory Statistics](http://www.sciencedirect.com/science/book/9780123743886).
 * Diez, D. M.; Barr, C. D.; Çetinkaya-Rundel, M. (2015). [OpenIntro Statistics](https://drive.google.com/file/d/0B-DHaDEbiOGkY1FCdEJFNGV1Ym8/view).
 * Leek, Jeff (2015). [Elements of Data Analytic Style](https://leanpub.com/datastyle/).
 * Peng, Roger (2015). [R Programming for Data Science])https://leanpub.com/rprogramming/).
-* Wardrop, R. L. (1995). Statistics: Learning in the presence of variation.
 * Dalgaard, Peter. [Introductory Statistics with R](http://link.springer.com/book/10.1007%2F978-0-387-79054-1)
 
 Para acessar livros digitais fora da Unicamp, você precisará do VPN. Veja instruções de instalação [aqui](http://www.ccuec.unicamp.br/ccuec/acesso_remoto_vpn).
