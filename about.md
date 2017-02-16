@@ -36,10 +36,10 @@ Para acessar livros digitais fora da Unicamp, você precisará do VPN. Veja inst
 A avaliação se dará através de um Projeto Final e Atividades (testinhos/atividades em aula/atividades moodle/laboratórios).
 
 * A (Atividades)
-* PF (Projeto Final)
+* PF (Projeto Final - 26/06/2017)
 * MG (Média Geral)
 * MF (Média Final)
-* EF (Exame Final)
+* EF (Exame Final - 10/07/2017)
 
 MG = 0.25 PF + 0.75 A
 
