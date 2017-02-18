@@ -7,6 +7,8 @@ permalink: /atividades/
 
 As atividades deverão ser entregues através do Moodle. Alguns exercícios deverão ser feitos individualmente, outros em grupos definidos no início da aula. 
 
+Apenas alunos presentes na hora da chamada poderão entregar os exercícios referentes àquela aula.
+
 
 * [Atividade 1 - sala de aula](atividade01/labintro.pdf)
 * Atividade 1 - entregar pelo Moodle: [versão HTML para leitura](atividade01/Ex01.html) - [versão RMarkdown para entrega](atividade01/Ex01.Rmd.zip)

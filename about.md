@@ -36,7 +36,7 @@ Para acessar livros digitais fora da Unicamp, você precisará do VPN. Veja inst
 A avaliação se dará através de um Projeto Final e Atividades (testinhos/atividades em aula/atividades moodle/laboratórios).
 
 * A (Atividades)
-* PF (Projeto Final - 26/06/2017)
+* PF (Projeto Final - Turma A: 26/06/2017, Turma B: 28/06/2017)
 * MG (Média Geral)
 * MF (Média Final)
 * EF (Exame Final - 10/07/2017)
@@ -51,4 +51,4 @@ Se MG < 6 e frequência inferior a 75%, o aluno está reprovado e MF = MG
 
 Frequência mínima para aprovação: 75% 
 
-
+Apenas alunos presentes na hora da chamada poderão entregar os exercícios referentes àquela aula.
