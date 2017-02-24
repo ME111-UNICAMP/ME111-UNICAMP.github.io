@@ -5,6 +5,14 @@ permalink: /atividades/
 ---
 
 
+# ATENÇÃO
+
+#  login: me111_lab
+
+#   senha: MabUlAk5
+
+# Os alunos poderão pegar as suas contas individuais a partir do dia 08/03/2017 na recepção da Informática (segundo andar IMECC)
+
 As atividades deverão ser entregues através do Moodle. Alguns exercícios deverão ser feitos individualmente, outros em grupos definidos no início da aula. 
 
 Apenas alunos presentes na hora da chamada poderão entregar os exercícios referentes àquela aula.

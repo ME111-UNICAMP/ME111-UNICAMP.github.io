@@ -10,7 +10,7 @@ permalink: /about/
 ))
  * PED: Luis Francisco Prado Pinheiro F. Salles RA 162334
  * PAD: Leonardo Torin RA 156229
- * Atendimento: PAD - Terças e Quintas 13-14 sala IM10; PED - Segundas e Sextas 13-14 sala IM10
+ * Atendimento: PAD - Terças e Quartas 13-14 sala IM10; PED - Segundas e Sextas 13-14 sala IM10
  * Comunicação por email: APENAS para meu email samara@ime.unicamp.br, APENAS com [ME111] especificado no assunto da mensagem, APENAS remetentes dos emails dac.unicamp.br ou g.unicamp.br serão lidos. Qualquer outra mensagem de aluno sem essas especificações [será ignorada](images/hqdefault.jpg).
  * Atividades e notas estão disponíveis no Moodle: [ME111-A](http://www.ggte.unicamp.br/eam/course/view.php?id=3619) e [ME111-B](http://www.ggte.unicamp.br/eam/course/view.php?id=3620). Você deverá logar com o mesmo usuário e senha que usar para acessar os serviços da DAC. 
  * Sobre abono de faltas, consulte o [regimento](http://www.dac.unicamp.br/portal/grad/regimento/capitulo_v/secao_x/).
