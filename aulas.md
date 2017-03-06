@@ -29,21 +29,12 @@ Passo-a-passo em [vídeo](https://www.youtube.com/watch?v=9Ja5HIRs_kI) feito pel
 
 **Importante**: a codificação de caracteres de acentuação é diferente quando usamos sistema Windows, Mac, Linux. Portanto, para não ter problema, siga os passos a seguir ANTES de abrir algum documendo .Rmd ou .Rnw no RStudio. 
 
-Para Windows:
 
 * Abra o RStudio
-* Tools -> Global Options
-* Na caixa Default text encoding clique em Change
-* Selecione UTF-8
-* Selecione Apply e depois Ok
-* Agora você pode abrir o .Rmd do enunciado sem problemas de acentuação.
-
-Para Mac:
-
-* Abra o RStudio
-* Preferences
-* Na caixa Default text encoding clique em Change
-* Selecione UTF-8
+* **Tools** -> **Global Options**
+* Na caixa lateral esquerda: **Code**
+* No menu horizontal: **Saving**
+* Na caixa **Default setting encoding**: selecione UTF-8
 * Selecione Apply e depois Ok
 * Agora você pode abrir o .Rmd do enunciado sem problemas de acentuação.
 * Use SEMPRE UTF-8 durante o curso.
