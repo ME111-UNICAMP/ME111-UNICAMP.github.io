@@ -9,7 +9,7 @@ permalink: /atividades/
 
 #  login: me111_lab
 
-#   senha: MabUlAk5
+#   senha: Lab2017
 
 # Os alunos poderão pegar as suas contas individuais a partir do dia 08/03/2017 na recepção da Informática (segundo andar IMECC)
 
