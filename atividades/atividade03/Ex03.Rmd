@@ -1,0 +1,118 @@
+# Atividade 3: 10000 passos
+
+
+
+Você e seus colegas de ME111 decidem contar passos ao longo do dia com o uso de um pedômetro (quem será que totaliza pelo menos [os tais 10000 passos diários](http://www.huffpostbrasil.com/science-of-us/quantos-passos-voce-dever_b_7644590.html)?). No entanto, cada colega tem um pedômetro diferente: aplicativos diferentes de celulares de diversas marcas, pedômetros de marcas diferentes, fitbit, etc... 
+
+
+
+**Parte 1:** Os pedômetros não são 100% precisos, portanto espera-se que haja alguma diferença, para um número fixo de passos dados, no número de passos registrados com o mesmo pedômetro múltiplas vezes. Você irá investigar este problema com o pedômetro escolhido. Considere problemas que podem afetar a medição: posição do pedômetro no corpo, superfície de caminhada, esbarrões, tropeços, etc... 
+
+Escolha um lugar sem muitas pessoas e dê **100** passos em cada tentativa, mantenha sempre o pedômetro no mesmo lugar do seu corpo em todas as tentativas; anote em um papel os seguintes dados:
+
+* RA
+* Sistema operacional do celular
+* Nome do aplicativo utilizado
+* Posição do pedômetro no corpo
+* Caminhada 1 - número inicial de passos mostrado no pedômetro
+* Caminhada 1 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 1
+* Caminhada 2 - número inicial de passos mostrado no pedômetro
+* Caminhada 2 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 2
+* Caminhada 3 - número inicial de passos mostrado no pedômetro
+* Caminhada 3 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 3
+* Caminhada 4 - número inicial de passos mostrado no pedômetro
+* Caminhada 4 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 4
+* Caminhada 5 - número inicial de passos mostrado no pedômetro
+* Caminhada 5 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 5
+* Caminhada 6 - número inicial de passos mostrado no pedômetro
+* Caminhada 6 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 6
+* Caminhada 7 - número inicial de passos mostrado no pedômetro
+* Caminhada 7 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 7
+* Caminhada 8 - número inicial de passos mostrado no pedômetro
+* Caminhada 8 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 8
+* Caminhada 9 - número inicial de passos mostrado no pedômetro
+* Caminhada 9 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 9
+* Caminhada 10 - número inicial de passos mostrado no pedômetro
+* Caminhada 10 - número final de passos mostrado no pedômetro
+* Intercorrências na caminhada 10
+
+Preencha o [formulário](https://goo.gl/forms/jUOVA0t8MsgM0l5k2) atentamente com suas informações. Você deverá estar logado na sua conta do [Google Education da Unicamp](https://sites.google.com/site/unicampgonnagafe/): loginDAC@g.unicamp.br nos serviços do Google.
+
+Para as demais partes desta atividade você deverá importar o banco de dados gerado durante a aula.
+
+**Parte 2:** É preciso fazer alguma manipulação no conjunto de dados para avaliar a precisão dos pedômetros nas caminhadas? Insira abaixo o código utilizado para criação de colunas necessárias.
+
+```{r,echo=TRUE}
+library(downloader)
+download("https://docs.google.com/spreadsheets/d/1BHaL7iYXImsQfjRSGlBcWZoFNaDFlkeS7X8ZTdM5o5o/pub?gid=328733293&single=true&output=csv","100passos.csv")
+dadosClasse <- read.csv("100passos.csv")
+
+# coloque seu código aqui
+
+```
+
+**Parte 3:** Como apresentar de maneira resumida e informativa os dados obtidos? Você pode utilizar mais de uma maneira, dependendo do que deseja salientar. Descreva o gráfico, indicando como ele ajuda a observar algo de seu interesse nesses dados.
+
+```{r,echo=FALSE,fig.align='center'}
+# coloque seu codigo aqui
+
+```
+
+**Parte 4:** Cada aluno fez 10 tentativas. Selecione 5 colegas e faça, no mesmo gráfico, um boxplot para as 10 tentativas de cada colega. 
+
+```{r,echo=FALSE,fig.align='center'}
+# coloque seu codigo aqui
+
+
+
+```
+
+**Parte 5:** Considerando agora todos os colegas e todas as medidas, calcule o valor absoluto da diferença do total de passos em cada medido em observação e o valor referência 100. Resuma esses valores das 10 tentativas de cada um usando a média, a mediana, o máximo e o mínimo. Preencha as frases a seguir:
+
+```{r,echo=FALSE}
+# coloque seu código aqui
+# estude sobre a função apply
+
+
+
+```
+
+* Se usarmos o máximo, a maior diferença (em valor absoluto) do valor medido para o valor real (100) foi XXX (coloque comando aqui) do aluno RA XXX (coloque comando aqui).
+
+* Se usarmos o mínimo, a maior diferença (em valor absoluto) do valor medido para o valor real (100) foi XXX (coloque comando aqui) do aluno RA XXX (coloque comando aqui).
+
+* Se usarmos a média, a maior diferença (em valor absoluto) do valor medido para o valor real (100) foi XXX (coloque comando aqui) do aluno RA XXX (coloque comando aqui).
+
+* Se usarmos a mediana, a maior diferença (em valor absoluto) do valor medido para o valor real (100) foi XXX (coloque comando aqui) do aluno RA XXX (coloque comando aqui).
+
+**Parte 6:** Considere agora apenas a **mediana** do valor absoluto da diferença entre o total medido e o valor real 100 das tentativas de cada aluno.
+
+* Construa um gráfico para descrever a distribuição das medianas.
+
+* Indique a mediana das **suas** 10 tentativas no gráfico, usando uma cor diferente.
+
+* Quantos alunos têm mediana acima da sua? 
+
+* Quantos alunos têm mediana abaixo da sua? 
+
+* Se vocês estivessem competindo para saber quem dá mais passos ao longo do dia, você se sentiria privilegiado ou prejudicado pelo seu pedômetro? Justifique.
+
+* Se todos os alunos estivessem utilizando um pedômetro de alta precisão, como isso afetaria a distribuição das medianas?
+
+* Será que a imprecisão é parecida entre homens e mulheres? Apresente pelo menos uma figura que auxilie alguma conclusão sobre isso e discuta com base na figura.
+
+
+**Parte 7:** Considere novamente apenas a **mediana** do valor absoluto da diferença entre o total medido e o valor real 100 das tentativas de cada aluno. Faça um gráfico com boxplots para cada sistema operacional. Discuta.
+
+**Parte 8:** Apresente medidas sumárias e um gráfico para peso e altura. Liste os possíveis *outliers* (liste os RA's) para cada variável.
+
+
