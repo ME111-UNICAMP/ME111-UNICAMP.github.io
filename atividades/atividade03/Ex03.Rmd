@@ -76,7 +76,7 @@ dadosClasse <- read.csv("100passos.csv")
 
 ```
 
-**Parte 5:** Considerando agora todos os colegas e todas as medidas, calcule o valor absoluto da diferença do total de passos em cada medido em observação e o valor referência 100. Resuma esses valores das 10 tentativas de cada um usando a média, a mediana, o máximo e o mínimo. Preencha as frases a seguir:
+**Parte 5:** Considerando agora todos os colegas e todas as medidas, calcule o valor absoluto da diferença do total de passos medido em cada observação e o valor referência 100. Resuma esses valores das 10 tentativas de cada um usando a média, a mediana, o máximo e o mínimo. Preencha as frases a seguir:
 
 ```{r,echo=FALSE}
 # coloque seu código aqui
@@ -108,7 +108,6 @@ dadosClasse <- read.csv("100passos.csv")
 
 * Se todos os alunos estivessem utilizando um pedômetro de alta precisão, como isso afetaria a distribuição das medianas?
 
-* Será que a imprecisão é parecida entre homens e mulheres? Apresente pelo menos uma figura que auxilie alguma conclusão sobre isso e discuta com base na figura.
 
 
 **Parte 7:** Considere novamente apenas a **mediana** do valor absoluto da diferença entre o total medido e o valor real 100 das tentativas de cada aluno. Faça um gráfico com boxplots para cada sistema operacional. Discuta.
