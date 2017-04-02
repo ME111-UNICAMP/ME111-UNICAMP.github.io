@@ -17,3 +17,5 @@ Apenas alunos presentes na hora da chamada poderão entregar os exercícios refe
 * Atividade 2 - entregar pelo Moodle: [versão HTML para leitura](atividade02/Ex02.html) - [versão RMarkdown para entrega](atividade02/Ex02.Rmd.zip)
 
 * Atividade 3 - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade03/Ex03.Rmd.zip)
+
+* Atividade 4 - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade04/Ex04.Rmd.zip)

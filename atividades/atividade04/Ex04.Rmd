@@ -1,0 +1,176 @@
+# Atividade 4
+
+## Quantos peixes há em uma lagoa?
+
+
+A [Lagoa do Taquaral](http://pt.wikipedia.org/wiki/Lagoa_do_Taquaral) é
+um famoso ponto de Campinas, com pista de caminhada, pedalinho, bonde, piscina, etc. 
+
+Imagine que o prefeito de Campinas tenha contratado a Estat-Jr para estimar o número de peixes na Lagoa do Taquaral. Você está estagiando na Estat-Jr e foi selecionado como executor do projeto. Por onde você começaria? Alguém já teve que lidar com um problema similar?
+
+Em 1662, John Graunt desenvolveu uma metodologia para estimar a população da Inglaterra. Mais tarde, em 1802, Pierre Simon Laplace (1749-1827) utilizou uma [metodologia similar](https://books.google.com.br/books?id=KKXiBQAAQBAJ&lpg=PA5&ots=zu5EHHRMRd&dq=graunt%20laplace%20total%20population&hl=pt-BR&pg=PA3#v=onepage&q=graunt%20laplace%20total%20population&f=false) para estimar a população da França. E [Carl Petersen](http://en.wikipedia.org/wiki/C.G._Johannes_Petersen) (1860-1928), biólogo marinho dinamarquês, foi o primeiro a utilizar o método de captura e recaptura para estimar o total de peixes.
+
+No [método de captura e recaptura](http://en.wikipedia.org/wiki/Mark_and_recapture), uma parte da população é capturada, marcada e devolvida ao ambiente. Depois, uma nova captura é feita (recaptura) e o número de indivíduos marcados é contado. Como o número de indivíduos marcados na amostra de recaptura deve ser proporcional ao número de indivíduos marcados na população total, uma estimativa da população total pode ser obtida dividindo o número de indivíduos marcados pela proporção de indivíduos marcados na amostra de recaptura.
+
+Temos a seguinte notação:
+
+* $N$: número de indivíduos na população
+* $M$: número de indivíduos marcados na captura
+* $n$: número de indivíduos na amostra de recaptura
+* $m$: número de indivíuos marcados na amostra de recaptura
+* $\frac{M}{N}$: proporção de indivíduos marcados na população
+* $\frac{m}{n}$: proporção de indivíduos marcados na amostra de recaptura
+
+E utiliza-se a equação:
+
+$$\frac{M}{N}=\frac{m}{n}$$
+
+Durante a aula, realizamos experimentos com bolas de gude na sacola, obtendo os seguintes resultados:
+
+```{r,echo=FALSE}
+dados <- data.frame(Experimento=XXXXXX,M=XXXXX,n=XXXXXX,m=XXXXXX) # preencha com os dados da tabela feita em aula
+dados$Nest <- XXXXXXXX # coloque a formula apropriada
+```
+
+```{r,echo=FALSE}
+library(knitr)
+kable(dados, format = "markdown",row.names=FALSE,col.names=c("Experimento","M","n","m","N estimado"))
+```
+
+A média das estimativas obtidas para $N$ foi `r round(XXXXXXX,0)`, mediana `r round(XXXXX,0)`, desvio-padrão `r round(XXXXXX,0)`. A seguir apresentamos o histrograma e o boxplot das estimativas de $N$ obtidas em aula.
+
+```{r,echo=FALSE}
+hist(XXXXXX,ylab="Frequência",xlab="Estimativa de N",main="")
+boxplot(XXXXXXX,ylab="Estimativa de N")
+```
+
+
+Mas como podemos avaliar se o método funciona? Iremos usar teoria de probabilidade e estatística para avaliar o modelo, em simulações descritas a seguir.
+
+Imagine que tenhamos uma população com $N=5$ peixes enumerados e que marquemos $M=2$ deles, especificamente, temos os peixes de número 1 e 5 marcados. 
+
+Quantas amostras (sem reposição e não-ordenada) de tamanho $n=3$ diferentes é possível obter?
+
+```{r,echo=FALSE,message=FALSE}
+library(combinat) # necessario para usar a função combn
+N <- 5
+M <- 2
+n <- 3
+marcados <- c(1,5) # este vetor deve ter comprimento igual a M
+amostras <- combn(1:N,n) # oq este comando faz? Leia o help da função: ?combn
+m <- apply(amostras,XXX,function (x) XXXXXXX) # vetor contendo o número de indivíduos marcados em cada uma das 10 amostras
+
+dadosExp <- as.data.frame(t(rbind(amostras,m)))
+dadosExp$N <- N
+dadosExp$M <- M
+dadosExp$n <- n
+dadosExp$Nest <- XXXXXXX # coloque a formula apropriada
+```
+Temos `r choose(N,n)` amostras sem reposição não ordenadas possíveis:
+
+```{r,results='asis',echo=FALSE}
+cat("Indivíduo Amostrado 1 | Indivíduo Amostrado 2 | Indivíduo Amostrado 3 | m | N | M | n| N estimado",  "--- | --- | --- | --- | --- | --- | --- | --- ", sep="\n")
+
+cat(apply(dadosExp, 1, function(x) paste(x, collapse=" | ")), sep = "\n")
+```
+
+Dentre as `r choose(N,n)` amostras possíveis, temos a seguinte distribuição do número de indivíduos marcados por amostra ($m$):
+```{r,echo=FALSE}
+barplot(XXXXX,ylab="Frequência",xlab="Número de indivíduos marcados amostrados",main="")
+```
+
+Como temos uma estimativa com valor infinito (caso em que $m=0$), vamos remover esta observação antes de estudarmos a distribuição das estimativas.
+
+
+```{r,echo=FALSE}
+dadosExp <- dadosExp[XXXXX,] # manter apenas linhas em que Nest seja finito, procure a função is.finite
+```
+
+A média das estimativas obtidas para $N$ foi `r round(XXXXX,0)`, mediana `r round(XXXXX,0)`, desvio-padrão `r round(XXXXXXX,0)`. A seguir apresentamos o histrograma e o boxplot das estimativas de $N$:
+
+
+
+```{r,echo=FALSE}
+hist(XXXXXX,ylab="Frequência",xlab="Estimativa de N",main="")
+boxplot(XXXXXX,ylab="Estimativa de N")
+```
+
+
+
+
+
+É interessante repetir a simulação acima com outros valores de $N$ (total da população), $M$ (total marcado na população) e $n$ (tamanho da amostra da recaptura). No entanto, o número de amostras possíveis cresce muito rapidamente, basta definir $N$, $n$ e usar o comando para verificar:
+
+```{r,eval=FALSE}
+choose(N,n)
+```
+
+Uma saída é avaliar diversas amostras diferentes, mas não exatamente todas as possíveis amostras.
+
+Por exemplo, para os dados vistos em classe, $N=XXXXX$, $M=XXXX$ e $n=XXXX$, temos `r choose(XXX,XXX)` amostras possíveis.
+Vamos, portanto, apenas simular vários casos de amostras de tamanho $n=XXX$ a partir de uma população de tamanho $N=XXX$ com $M=XXX$ indivíduos marcados e calcular a estimativa para $N$ em cada amostra simulada.
+
+Para obter uma amostra aleatória sem reposição de tamanho $n$ a partir de um população de tamanho $N$ usamos o comando:
+
+```{r,eval=FALSE}
+sample(1:N,n,replace=FALSE)
+```
+
+```{r,echo=FALSE}
+N <- 256
+M <- 24
+n <- 36
+marcados <- c(1:M) # este vetor deve ter comprimento igual a M
+
+B <- 1000 # quantas amostras iremos simular
+
+amostras <- matrix(NA,ncol=n,nrow=B) # matriz vazia com B linhas e n colunas
+m <- c() # vetor vazio
+
+for (i in 1:B)
+  {
+  amostras[i,] <- XXXXXXXXX # cada linha de "amostras" irá conter os n elementos amostrados da populaçao com N elementos
+  m[i] <- XXXXXXXXX # o i-esimo elemento de m irá conter o número de elementos marcados na i-esima amostra realizada (i-esima linha da matriz "amostras")
+  }
+
+dadosExp <- as.data.frame(cbind(amostras,m)) # cada linha tem uma simulacao de amostra de tamanho n seguida do valor de m
+dadosExp$N <- N
+dadosExp$M <- M
+dadosExp$n <- n
+dadosExp$Nest <- XXXXXXX # coloque a formula apropriada
+```
+
+Dentre as `r B` amostras simuladas, temos a seguinte distribuição do número de indivíduos marcados por amostra ($m$):
+
+```{r,echo=FALSE}
+barplot(XXXXXXX,ylab="Frequência",xlab="Número de indivíduos marcados amostrados",main="")
+```
+
+
+Como temos uma estimativa com valor infinito (caso em que $m=0$), vamos remover estas observações antes de estudarmos a distribuição das estimativas.
+
+
+```{r,echo=FALSE}
+dadosExp <- dadosExp[XXXXXX,] # manter apenas linhas em que Nest seja finito
+```
+
+A média das estimativas obtidas para $N$ foi `r round(XXXXXX,0)`, mediana `r round(XXXXXX,0)`, desvio-padrão `r round(XXXXXX,0)`. A seguir apresentamos o histrograma e o boxplot das estimativas de $N$:
+
+
+
+```{r,echo=FALSE}
+hist(XXXXXX,ylab="Frequência",xlab="Estimativa de N",main="")
+boxplot(XXXXXXX,ylab="Estimativa de N")
+```
+
+* Comente os resultados obtidos na simulação. 
+
+* A média das estimativas obtidas está próxima do verdadeiro valor de $N$? 
+
+* E a mediana? 
+
+* O que o desvio-padrão das estimativas indica sobre este método de estimação? O método é preciso? O média das estimativas está há quantos desvios-padrão do verdadeiro $N$?
+
+* Observe a distribuição das estimativas para $N$. Você usaria a média ou a mediana como uma estimativa para o prefeito de Campinas? Usaria o desvio-padrão para falar da precisão ou talvez usaria o primeiro e terceiro quartil? Discuta.
+
+* Como você poderia usar uma simulação para responder à pergunta a seguir. "O que traria mais precisão na estimativa: aumentar o tamanho de cada amostra, aumentar o número de indivíduos marcados ou ambos?".
