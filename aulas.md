@@ -44,7 +44,7 @@ Passo-a-passo em [vídeo](https://www.youtube.com/watch?v=9Ja5HIRs_kI) feito pel
 * [DataCamp](https://www.datacamp.com/courses?learn=r_programming)
 * [Code School - Try R](http://tryr.codeschool.com/)
 * [swirl](http://swirlstats.com/)
-* [DataCamp - Intermidiate R](https://www.datacamp.com/courses/intermediate-r)
+* [DataCamp - Intermediate R](https://www.datacamp.com/courses/intermediate-r)
 * [Vídeos do Prof. Flávio Barros](https://www.youtube.com/playlist?list=PLTOn3Eq-i6dtx49VxX9tA0u1CRdIu8FK-)
 * [Material da Profa. Laura Rifo](http://www.ime.unicamp.br/~laurarifo/me093/AL/)
 * [Minicurso de Estatística Básica - Introdução ao R](https://www.scribd.com/doc/209278459/Minicurso-de-Estatistica-Basica-Introducao-Ao-Software-R)
