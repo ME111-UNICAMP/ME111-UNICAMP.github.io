@@ -28,8 +28,8 @@ $$\frac{M}{N}=\frac{m}{n}$$
 Durante a aula, realizamos experimentos com bolas de gude na sacola, obtendo os seguintes resultados:
 
 ```{r,echo=FALSE}
-dados <- data.frame(Experimento=XXXXXX,M=XXXXX,n=XXXXXX,m=XXXXXX) # preencha com os dados da tabela feita em aula
-dados$Nest <- XXXXXXXX # coloque a formula apropriada
+dados <- data.frame(Experimento=XXXXXX,M=XXXXXXX,n=XXXXXXX,m=XXXXXX) # preencha com os dados da tabela feita em aula
+dados$Nest <- XXXXXX # coloque a formula apropriada
 ```
 
 ```{r,echo=FALSE}
