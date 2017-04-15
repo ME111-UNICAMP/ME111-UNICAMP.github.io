@@ -1,0 +1,135 @@
+# Atividade 5
+
+## Uma senhora toma chá, mas eu tomo coca-cola!
+
+Estudamos durante a aula o famoso experimento feito por [R. A. Fisher](https://pt.wikipedia.org/wiki/Ronald_Fisher) para [a senhora que toma chá](https://youtu.be/lgs7d5saFFc).
+
+Vamos agora reproduzir o experimento, mas com Coca-Cola normal e Coca Zero.
+
+<center><img src="poster.jpg" width=350></center>
+
+
+
+  Resposta                      | Copo tem Coca-cola  | Copo tem Coca Zero|   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Aluno diz coca-cola** | $x$                       |          $n-x$              | $n$ 
+**Aluno diz coca zero** |                     |                        | 
+            **Total**              | $r$                   | $N-r$                     | $N$      
+
+* $N$ copos foram preparados
+
+* $r$ com Coca-Cola
+
+* $N-r$ com Coca Zero
+
+* O aluno é informado do total de copos com Coca-Cola e do total de copos com Coca Zero.
+
+* Os copos são apresentados em ordem aleatória para o aluno provar e escolher $n$ que ele acha que tem Coca-Cola.
+
+O experimento é planejado de maneira que as margens da tabela são fixas, pois a pessoa é informada do total de copos preparados de cada maneira. Desta forma, sempre teremos que:
+
+$r=n$.
+
+Portanto, se soubermos $x$, sabemos todas as outras caselas da tabela.
+
+Seja $X$ a variável aleatória que representa o número copos corretamente identificados como coca-cola, dentre os $r$ com coca-cola.
+
+A probabilidade do aluno identificar corretamente $x$ copos como Coca-Cola, dentre os $r$ copos oferecidos com Coca-Cola é:
+
+$$P(X=x)=\frac{\binom{r}{x}\binom{N-r}{n-x}}{\binom{N}{n}}, \qquad 0\leq x \leq min\{r,n\}$$
+
+### Experimento realizado
+
+* $N=12$
+
+* $r=6$ com Coca-Cola
+
+* $N-r=6$ com Coca Zero
+
+* O aluno é informado do total de copos com Coca-Cola e do total de copos com Coca Zero.
+
+* Os copos são apresentados em ordem aleatória para o aluno provar e escolher $n=6$
+ que ele acha que tem Coca-Cola.
+
+### Teste de Hipótese
+
+* $H_0$: o aluno não sabe distinguir entre Coca-Cola e Coca Zero e seleciona os $n=6$ copos ao acaso.
+
+* Estatística do teste  é  a variável aleatória $X$: número de acertos.
+
+* Sob $H_0$, a distribuição de probabilidade da estatística do teste é dada por:
+
+$$P(X=x)=\frac{\binom{6}{x}\binom{6}{6-x}}{\binom{12}{6}}, \qquad 0\leq x \leq 6$$
+
+```{r,echo=FALSE}
+library(MASS)
+p0 = fractions(dhyper(xxxxxx)) # P(X=0)
+p1 = fractions(dhyper(xxxxxx)) # P(X=1)
+p2 = fractions(dhyper(xxxxxx)) # P(X=2)
+p3 = fractions(dhyper(xxxxxx)) # P(X=3)
+p4 = fractions(dhyper(xxxxxx)) # P(X=4)
+p5 = fractions(dhyper(xxxxxx)) # P(X=5)
+p6 = fractions(dhyper(xxxxxx)) # P(X=6)
+
+```
+
+$$P(X=0) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p0)` $$
+
+$$P(X=1) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p1)` $$
+
+$$P(X=2) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p2)` $$
+
+$$P(X=3) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p3)` $$
+
+$$P(X=4) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p4)` $$
+
+$$P(X=5) =\frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p5)` $$
+$$P(X=6) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p6)` $$
+
+
+* De maneira que a distribuição de probabilidade de $X$, número de acertos, sob $H_0$, é dada por:
+
+```{r,echo=FALSE,fig.align='center'}
+barplot(c(p0,p1,p2,p3,p4,p5,p6), names.arg=0:6, col="blue", main="", 
+            cex.lab=1.5, cex.axis=1.3, cex.names=1.3, cex.main=2, las=1, xlab="x", ylab="P(X=x)",ylim=c(0,1))
+```
+
+* Após a realização do experimento, observamos o número de copos identificados corretamente como tendo Coca-cola: $x=XX$. 
+
+* Temos a seguinte tabela observada:
+
+  Resposta                      | Copo tem Coca-cola  | Copo tem Coca Zero|   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Aluno diz coca-cola** | $x=XX$                       |          $6-XX$              | $6$ 
+**Aluno diz coca zero** |                     |                        | 
+            **Total**              | $6$                   | $6$                     | $12$      
+
+
+
+* Sob $H_0$, qual a probabilidade de obter uma tabela como essa? Isto é, se o aluno não sabe distinguir e escolhe os copos ao acaso, qual a chance de observarmos um resultado como esse?
+
+
+
+* A probabilidade de obter uma tabela como essa é dada por:
+
+$$P(X=XX) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(pXX)` $$
+
+
+* Caso o aluno tivesse acertado todos os copos, teríamos ainda mais evidência contra $H_0$? Devemos então incluir a probabilidade de um resultado ainda "mais extremo" contra $H_0$.
+
+* Valor de p é dado por `r XXXXX`.
+
+* Qual a conclusão que você chega?
+
+* Procure sobre a função `fisher.test` e aplique no experimento obtido para calcular o valor de p. 
+
+```{r,echo=TRUE}
+# coloque seu codigo aqui
+# construa a matrix da tabela 2x2
+# use a funcao fisher.test corretamente na tabela criada
+```
+
+* Se o número de copos preparados no experimento fosse 10 (5 de cada tipo) e o aluno acertasse todos os 5, você teria evidências suficientes para rejeitar $H_0$? Justifique com cálculos de probabilidades. 
+
+
+

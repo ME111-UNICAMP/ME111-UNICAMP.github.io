@@ -19,3 +19,6 @@ Apenas alunos presentes na hora da chamada poderão entregar os exercícios refe
 * Atividade 3 - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade03/Ex03.Rmd.zip)
 
 * Atividade 4 - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade04/Ex04.Rmd.zip)
+
+* Atividade 5 ([slides](atividade5/slides/FisherExactTest.html)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade05/Ex05.zip)
+
