@@ -119,6 +119,8 @@ barplot(c(choose(4,4)*choose(4,0),choose(4,3)*choose(4,1),choose(4,2)*choose(4,2
 
 * $H_0$: A senhora não consegue distinguir entre chá ou leite primeiro e escolhe ao acaso durante o experimento.
 
+* $H_a$: A senhora consegue distinguir.
+
 * Estatística do teste: Total de acertos ($X$)
 
 * Para decidir, precisamos da distribuição de probabilidade da estatística do teste quando $H_0$ é verdadeira.
@@ -242,8 +244,242 @@ $$P(X=3)+P(X=4)=`r as.character(p3)` + `r as.character(p4)` = `r as.character(pv
 
 * Sob $H_0$, qual a probabilidade de se obter a tabela observada no experimento realizado? (Margens fixas: Hipergeométrica).
 
-* Sob $H_0$, qual a probabilidade de se obter tabelas "mais extremas" (mais distantes de $H_0$), quando fixamos as marginais da tabela observada?
+* Sob $H_0$, qual a probabilidade de se obter tabelas "mais extremas" (mais distantes de $H_0$, na "direção" de $H_a$), quando fixamos as marginais da tabela observada?
+
+
+## Teste Exato de Fisher {.smaller}
+
+  Tratamento/Resposta                      |  S (Sucesso)  |  F (Fracasso) |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**1** | $a$                       |            $b$            | $n_1$ 
+**2** |    $c$                 |           $d$            | $n_2$ 
+            **Total**              | $m_1$                   | $m_2$                     | $n$      
+
+$\hat{p}_1 = \frac{a}{n_1}$ é a proporção amostral de sucessos no tratamento 1.
+
+$\hat{p}_2 = \frac{a}{n_2}$ é a proporção amostral de sucessos no tratamento 2.
+
+$H_0$: a probabilidade de sucesso é a mesma em cada um dos tratamentos, isto é, $p_1=p_2$.
+
+em que $p_i$ é a verdadeira (populacional) proporção de sucesso do tratamento $i$.
+
+## Teste Exato de Fisher
+
+Estatística do teste: $x=\hat{p_1}-\hat{p_2}$
+
+Precisamos então calcular a distribuição de probabilidade da estatística do teste, sob $H_0$.
+
+## Exemplo
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=1$                       |            $b=5$            | $n_1=6$ 
+**Não** |    $c=4$                 |           $d=4$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+$H_0$: $P(gripe|vacina)=P(gripe|semvacina)$
+
+$P(gripe|vacina)=p_1$
+
+$P(gripe|semvacina)=p_2$
 
 
 
+## Exemplo
+
+Estatística do teste: $x=\hat{p_1}-\hat{p_2}$
+
+$$x_{obs}=\frac{1}{6}-\frac{4}{8}$$
+
+Precisamos obter a distribuição de probabilidade da estatística do teste, sob $H_0$. Para isso, precisamos construir todas as tabelas possíveis, mantendo os totais marginais fixos.
+
+
+## Exemplo
+
+Tabela 1 é a observada
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=1$                       |            $b=5$            | $n_1=6$ 
+**Não** |    $c=4$                 |           $d=4$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{1}=\frac{1}{6}-\frac{4}{8}$$
+
+## Exemplo {.smaller}
+
+Sob $H_0$, isto é, considerando o caso em que $H_0$ seja verdadeira, temos que a chance de ter gripe é a mesma, independente do fato da pessoa ter tomado a vacina ou não.
+
+Quantas formas possíveis temos de escolher 5 pessoas a partir de um grupo de 14 pessoas? (14 pessoas no total e 5 com gripe, independente de terem tomado vacina ou não):
+
+$$\binom{14}{5}=`r choose(14,5)`$$
+
+Para observarmos $x_{1}=\frac{1}{6}-\frac{4}{8}$, necessariamente, duas coisas ocorreram:
+
+Dentre as pessoas que tomaram vacina, 1 teve gripe e, dentre as pessoas que não tomaram vacina, 4 tiveram gripe. De quantas formas isso pode ocorrer, sendo que temos 6 pessoas que tomaram a vacina e 8 que não tomaram?
+
+$$\binom{6}{1}\times\binom{8}{4}=`r choose(6,1)`\times `r choose(8,4)` = `r choose(6,1)* choose(8,4)`$$
+
+De maneira que  $P(X=x_1)=P\left(X=\frac{1}{6}-\frac{4}{8}\right)=\frac{\binom{6}{1}\times\binom{8}{4}}{\binom{14}{5}}=\frac{`r choose(6,1)* choose(8,4)`}{`r choose(14,5)`}$
+
+
+## Exemplo {.smaller}
+
+Tabela 2 
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=0$                       |            $b=6$            | $n_1=6$ 
+**Não** |    $c=5$                 |           $d=3$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{2}=\frac{0}{6}-\frac{5}{8}$$
+ $$P(X=x_2)=P\left(X=\frac{0}{6}-\frac{5}{8}\right)=\frac{\binom{6}{0}\times\binom{8}{5}}{\binom{14}{5}}=\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}$$
+ 
+## Exemplo {.smaller}
+
+Tabela 3 
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=2$                       |            $b=4$            | $n_1=6$ 
+**Não** |    $c=3$                 |           $d=5$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{3}=\frac{2}{6}-\frac{3}{8}$$
+ $$P(X=x_3)=P\left(X=\frac{2}{6}-\frac{3}{8}\right)=\frac{\binom{6}{2}\times\binom{8}{3}}{\binom{14}{5}}=\frac{`r choose(6,2)* choose(8,3)`}{`r choose(14,5)`}$$
+
+
+## Exemplo {.smaller}
+
+Tabela 4
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=3$                       |            $b=3$            | $n_1=6$ 
+**Não** |    $c=2$                 |           $d=6$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{4}=\frac{3}{6}-\frac{2}{8}$$
+
+ $$P(X=x_4)=P\left(X=\frac{3}{6}-\frac{2}{8}\right)=\frac{\binom{6}{3}\times\binom{8}{2}}{\binom{14}{5}}=\frac{`r choose(6,3)* choose(8,2)`}{`r choose(14,5)`}$$
+
+
+
+## Exemplo {.smaller}
+
+Tabela 5
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=4$                       |            $b=2$            | $n_1=6$ 
+**Não** |    $c=1$                 |           $d=7$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{5}=\frac{4}{6}-\frac{1}{8}$$
+
+ $$P(X=x_5)=P\left(X=\frac{4}{6}-\frac{1}{8}\right)=\frac{\binom{6}{4}\times\binom{8}{1}}{\binom{14}{5}}=\frac{`r choose(6,4)* choose(8,1)`}{`r choose(14,5)`}$$
+
+
+## Exemplo {.smaller}
+
+Tabela 6
+
+  Tomou Vacina?/Teve gripe?                      |  Sim  |  Não |   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Sim** | $a=5$                       |            $b=1$            | $n_1=6$ 
+**Não** |    $c=0$                 |           $d=8$            | $n_2=8$ 
+            **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
+            
+
+$$x_{6}=\frac{5}{6}-\frac{0}{8}$$
+
+ $$P(X=x_6)=P\left(X=\frac{5}{6}-\frac{0}{8}\right)=\frac{\binom{6}{5}\times\binom{8}{0}}{\binom{14}{5}}=\frac{`r choose(6,5)* choose(8,0)`}{`r choose(14,5)`}$$
+
+## Exemplo
+
+Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
+
+$H_a$: $p1<p_2$, isto é $P(gripe|vacina)<P(gripe|semvacina)$
+
+O valor de $p$ é calculado como $P(X\leq x)=P\left(X\leq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_2)=\frac{`r choose(6,1)* choose(8,4)`}{`r choose(14,5)`}+\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}$
+
+## Exemplo {.smaller}
+
+```{r,echo=TRUE}
+tabela <-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c("Vacina", "Sem Vacina"),
+             c("Gripe", "Sem Gripe")))
+tabela
+fisher.test(tabela, alternative = "less")
+```
+
+
+## Exemplo
+
+Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
+
+$H_a$: $p1>p_2$, isto é $P(gripe|vacina)>P(gripe|semvacina)$
+
+O valor de $p$ é calculado como 
+
+$$
+\begin{eqnarray}
+P(X\geq x)&=&P\left(X\geq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_3)+P(X=x_4)\\
+&+&P(X=x_5)+P(X=x_6)=1-P(X=x_2)=1-\frac{\binom{6}{0}\times\binom{8}{5}}{\binom{14}{5}}\\
+&=&1-\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}
+\end{eqnarray}
+$$
+
+## Exemplo {.smaller}
+
+```{r,echo=TRUE}
+tabela <-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c("Vacina", "Sem Vacina"),
+             c("Gripe", "Sem Gripe")))
+tabela
+fisher.test(tabela, alternative = "greater")
+```
+
+
+
+## Exemplo
+
+Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
+
+$H_a$: $p1\neq p_2$, isto é $P(gripe|vacina)\neq P(gripe|semvacina)$
+
+O valor de $p$ é calculado como 
+
+$$
+\begin{eqnarray}
+P(X\geq |x|)+P(X\leq -|x|)&=&
+fdfd
+\end{eqnarray}
+$$
+
+
+## Exemplo {.smaller}
+
+```{r,echo=TRUE}
+tabela <-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c("Vacina", "Sem Vacina"),
+             c("Gripe", "Sem Gripe")))
+tabela
+fisher.test(tabela, alternative = "two.sided")
+```
 

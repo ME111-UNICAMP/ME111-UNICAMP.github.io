@@ -258,6 +258,7 @@
 
 <ul>
 <li><p>\(H_0\): A senhora não consegue distinguir entre chá ou leite primeiro e escolhe ao acaso durante o experimento.</p></li>
+<li><p>\(H_a\): A senhora consegue distinguir.</p></li>
 <li><p>Estatística do teste: Total de acertos (\(X\))</p></li>
 <li><p>Para decidir, precisamos da distribuição de probabilidade da estatística do teste quando \(H_0\) é verdadeira.</p></li>
 </ul>
@@ -417,8 +418,437 @@
 <ul>
 <li><p>\(H_0\): variáveis 1 e 2 independentes</p></li>
 <li><p>Sob \(H_0\), qual a probabilidade de se obter a tabela observada no experimento realizado? (Margens fixas: Hipergeométrica).</p></li>
-<li><p>Sob \(H_0\), qual a probabilidade de se obter tabelas &quot;mais extremas&quot; (mais distantes de \(H_0\)), quando fixamos as marginais da tabela observada?</p></li>
-</ul></article></slide>
+<li><p>Sob \(H_0\), qual a probabilidade de se obter tabelas &quot;mais extremas&quot; (mais distantes de \(H_0\), na &quot;direção&quot; de \(H_a\)), quando fixamos as marginais da tabela observada?</p></li>
+</ul>
+
+</article></slide><slide class=''><hgroup><h2>Teste Exato de Fisher</h2></hgroup><article  id="teste-exato-de-fisher-1" class="smaller">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tratamento/Resposta</th>
+<th align="left">S (Sucesso)</th>
+<th align="left">F (Fracasso)</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>1</strong></td>
+<td align="left">\(a\)</td>
+<td align="left">\(b\)</td>
+<td align="left">\(n_1\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>2</strong></td>
+<td align="left">\(c\)</td>
+<td align="left">\(d\)</td>
+<td align="left">\(n_2\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1\)</td>
+<td align="left">\(m_2\)</td>
+<td align="left">\(n\)</td>
+</tr>
+</table>
+
+<p>\(\hat{p}_1 = \frac{a}{n_1}\) é a proporção amostral de sucessos no tratamento 1.</p>
+
+<p>\(\hat{p}_2 = \frac{a}{n_2}\) é a proporção amostral de sucessos no tratamento 2.</p>
+
+<p>\(H_0\): a probabilidade de sucesso é a mesma em cada um dos tratamentos, isto é, \(p_1=p_2\).</p>
+
+<p>em que \(p_i\) é a verdadeira (populacional) proporção de sucesso do tratamento \(i\).</p>
+
+</article></slide><slide class=''><hgroup><h2>Teste Exato de Fisher</h2></hgroup><article  id="teste-exato-de-fisher-2">
+
+<p>Estatística do teste: \(x=\hat{p_1}-\hat{p_2}\)</p>
+
+<p>Precisamos então calcular a distribuição de probabilidade da estatística do teste, sob \(H_0\).</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo">
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=1\)</td>
+<td align="left">\(b=5\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=4\)</td>
+<td align="left">\(d=4\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\(H_0\): \(P(gripe|vacina)=P(gripe|semvacina)\)</p>
+
+<p>\(P(gripe|vacina)=p_1\)</p>
+
+<p>\(P(gripe|semvacina)=p_2\)</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-1">
+
+<p>Estatística do teste: \(x=\hat{p_1}-\hat{p_2}\)</p>
+
+<p>\[x_{obs}=\frac{1}{6}-\frac{4}{8}\]</p>
+
+<p>Precisamos obter a distribuição de probabilidade da estatística do teste, sob \(H_0\). Para isso, precisamos construir todas as tabelas possíveis, mantendo os totais marginais fixos.</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-2">
+
+<p>Tabela 1 é a observada</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=1\)</td>
+<td align="left">\(b=5\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=4\)</td>
+<td align="left">\(d=4\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{1}=\frac{1}{6}-\frac{4}{8}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-3" class="smaller">
+
+<p>Sob \(H_0\), isto é, considerando o caso em que \(H_0\) seja verdadeira, temos que a chance de ter gripe é a mesma, independente do fato da pessoa ter tomado a vacina ou não.</p>
+
+<p>Quantas formas possíveis temos de escolher 5 pessoas a partir de um grupo de 14 pessoas? (14 pessoas no total e 5 com gripe, independente de terem tomado vacina ou não):</p>
+
+<p>\[\binom{14}{5}=2002\]</p>
+
+<p>Para observarmos \(x_{1}=\frac{1}{6}-\frac{4}{8}\), necessariamente, duas coisas ocorreram:</p>
+
+<p>Dentre as pessoas que tomaram vacina, 1 teve gripe e, dentre as pessoas que não tomaram vacina, 4 tiveram gripe. De quantas formas isso pode ocorrer, sendo que temos 6 pessoas que tomaram a vacina e 8 que não tomaram?</p>
+
+<p>\[\binom{6}{1}\times\binom{8}{4}=6\times 70 = 420\]</p>
+
+<p>De maneira que \(P(X=x_1)=P\left(X=\frac{1}{6}-\frac{4}{8}\right)=\frac{\binom{6}{1}\times\binom{8}{4}}{\binom{14}{5}}=\frac{420}{2002}\)</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-4" class="smaller">
+
+<p>Tabela 2</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=0\)</td>
+<td align="left">\(b=6\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=5\)</td>
+<td align="left">\(d=3\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{2}=\frac{0}{6}-\frac{5}{8}\] \[P(X=x_2)=P\left(X=\frac{0}{6}-\frac{5}{8}\right)=\frac{\binom{6}{0}\times\binom{8}{5}}{\binom{14}{5}}=\frac{56}{2002}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-5" class="smaller">
+
+<p>Tabela 3</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=2\)</td>
+<td align="left">\(b=4\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=3\)</td>
+<td align="left">\(d=5\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{3}=\frac{2}{6}-\frac{3}{8}\] \[P(X=x_3)=P\left(X=\frac{2}{6}-\frac{3}{8}\right)=\frac{\binom{6}{2}\times\binom{8}{3}}{\binom{14}{5}}=\frac{840}{2002}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-6" class="smaller">
+
+<p>Tabela 4</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=3\)</td>
+<td align="left">\(b=3\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=2\)</td>
+<td align="left">\(d=6\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{4}=\frac{3}{6}-\frac{2}{8}\]</p>
+
+<p>\[P(X=x_4)=P\left(X=\frac{3}{6}-\frac{2}{8}\right)=\frac{\binom{6}{3}\times\binom{8}{2}}{\binom{14}{5}}=\frac{560}{2002}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-7" class="smaller">
+
+<p>Tabela 5</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=4\)</td>
+<td align="left">\(b=2\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=1\)</td>
+<td align="left">\(d=7\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{5}=\frac{4}{6}-\frac{1}{8}\]</p>
+
+<p>\[P(X=x_5)=P\left(X=\frac{4}{6}-\frac{1}{8}\right)=\frac{\binom{6}{4}\times\binom{8}{1}}{\binom{14}{5}}=\frac{120}{2002}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-8" class="smaller">
+
+<p>Tabela 6</p>
+
+<table class = 'rmdtable'>
+<tr class="header">
+<th align="left">Tomou Vacina?/Teve gripe?</th>
+<th align="left">Sim</th>
+<th align="left">Não</th>
+<th align="left">Total</th>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Sim</strong></td>
+<td align="left">\(a=5\)</td>
+<td align="left">\(b=1\)</td>
+<td align="left">\(n_1=6\)</td>
+</tr>
+<tr class="even">
+<td align="left"><strong>Não</strong></td>
+<td align="left">\(c=0\)</td>
+<td align="left">\(d=8\)</td>
+<td align="left">\(n_2=8\)</td>
+</tr>
+<tr class="odd">
+<td align="left"><strong>Total</strong></td>
+<td align="left">\(m_1=5\)</td>
+<td align="left">\(m_2=9\)</td>
+<td align="left">\(n=14\)</td>
+</tr>
+</table>
+
+<p>\[x_{6}=\frac{5}{6}-\frac{0}{8}\]</p>
+
+<p>\[P(X=x_6)=P\left(X=\frac{5}{6}-\frac{0}{8}\right)=\frac{\binom{6}{5}\times\binom{8}{0}}{\binom{14}{5}}=\frac{6}{2002}\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-9">
+
+<p>Conhecemos agora a distribuição de probabilidade da estatística do teste sob \(H_0\). Agora, para a \(H_a\) de interesse, podemos calcular o valor de \(p\).</p>
+
+<p>\(H_a\): \(p1&lt;p_2\), isto é \(P(gripe|vacina)&lt;P(gripe|semvacina)\)</p>
+
+<p>O valor de \(p\) é calculado como \(P(X\leq x)=P\left(X\leq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_2)=\frac{420}{2002}+\frac{56}{2002}\)</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-10" class="smaller">
+
+<pre class = 'prettyprint lang-r'>tabela &lt;-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c(&quot;Vacina&quot;, &quot;Sem Vacina&quot;),
+             c(&quot;Gripe&quot;, &quot;Sem Gripe&quot;)))
+tabela</pre>
+
+<pre >##            Gripe Sem Gripe
+## Vacina         1         5
+## Sem Vacina     4         4</pre>
+
+<pre class = 'prettyprint lang-r'>fisher.test(tabela, alternative = &quot;less&quot;)</pre>
+
+<pre >## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  tabela
+## p-value = 0.2378
+## alternative hypothesis: true odds ratio is less than 1
+## 95 percent confidence interval:
+##  0.000000 2.605364
+## sample estimates:
+## odds ratio 
+##  0.2246127</pre>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-11">
+
+<p>Conhecemos agora a distribuição de probabilidade da estatística do teste sob \(H_0\). Agora, para a \(H_a\) de interesse, podemos calcular o valor de \(p\).</p>
+
+<p>\(H_a\): \(p1&gt;p_2\), isto é \(P(gripe|vacina)&gt;P(gripe|semvacina)\)</p>
+
+<p>O valor de \(p\) é calculado como</p>
+
+<p>\[
+\begin{eqnarray}
+P(X\geq x)&amp;=&amp;P\left(X\geq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_3)+P(X=x_4)\\
+&amp;+&amp;P(X=x_5)+P(X=x_6)=1-P(X=x_2)=1-\frac{\binom{6}{0}\times\binom{8}{5}}{\binom{14}{5}}\\
+&amp;=&amp;1-\frac{56}{2002}
+\end{eqnarray}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-12" class="smaller">
+
+<pre class = 'prettyprint lang-r'>tabela &lt;-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c(&quot;Vacina&quot;, &quot;Sem Vacina&quot;),
+             c(&quot;Gripe&quot;, &quot;Sem Gripe&quot;)))
+tabela</pre>
+
+<pre >##            Gripe Sem Gripe
+## Vacina         1         5
+## Sem Vacina     4         4</pre>
+
+<pre class = 'prettyprint lang-r'>fisher.test(tabela, alternative = &quot;greater&quot;)</pre>
+
+<pre >## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  tabela
+## p-value = 0.972
+## alternative hypothesis: true odds ratio is greater than 1
+## 95 percent confidence interval:
+##  0.00692127        Inf
+## sample estimates:
+## odds ratio 
+##  0.2246127</pre>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-13">
+
+<p>Conhecemos agora a distribuição de probabilidade da estatística do teste sob \(H_0\). Agora, para a \(H_a\) de interesse, podemos calcular o valor de \(p\).</p>
+
+<p>\(H_a\): \(p1\neq p_2\), isto é \(P(gripe|vacina)\neq P(gripe|semvacina)\)</p>
+
+<p>O valor de \(p\) é calculado como</p>
+
+<p>\[
+\begin{eqnarray}
+P(X\geq |x|)+P(X\leq -|x|)&amp;=&amp;
+fdfd
+\end{eqnarray}
+\]</p>
+
+</article></slide><slide class=''><hgroup><h2>Exemplo</h2></hgroup><article  id="exemplo-14" class="smaller">
+
+<pre class = 'prettyprint lang-r'>tabela &lt;-
+matrix(c(1, 4, 5, 4),
+        nrow = 2,
+        dimnames =
+        list(c(&quot;Vacina&quot;, &quot;Sem Vacina&quot;),
+             c(&quot;Gripe&quot;, &quot;Sem Gripe&quot;)))
+tabela</pre>
+
+<pre >##            Gripe Sem Gripe
+## Vacina         1         5
+## Sem Vacina     4         4</pre>
+
+<pre class = 'prettyprint lang-r'>fisher.test(tabela, alternative = &quot;two.sided&quot;)</pre>
+
+<pre >## 
+##  Fisher&#39;s Exact Test for Count Data
+## 
+## data:  tabela
+## p-value = 0.3007
+## alternative hypothesis: true odds ratio is not equal to 1
+## 95 percent confidence interval:
+##  0.003403322 3.609204059
+## sample estimates:
+## odds ratio 
+##  0.2246127</pre></article></slide>
 
 
   <slide class="backdrop"></slide>
