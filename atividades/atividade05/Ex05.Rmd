@@ -2,11 +2,10 @@
 
 ## Uma senhora toma chá, mas eu tomo coca-cola!
 
-Estudamos durante a aula o famoso experimento feito por [R. A. Fisher](https://pt.wikipedia.org/wiki/Ronald_Fisher) para [a senhora que toma chá](https://youtu.be/lgs7d5saFFc).
-
-Vamos agora reproduzir o experimento, mas com Coca-Cola normal e Coca Zero.
+Durante a aula, reproduzimos o famoso experimento feito por [R. A. Fisher](https://pt.wikipedia.org/wiki/Ronald_Fisher) para [a senhora que toma chá](https://youtu.be/lgs7d5saFFc), porém com Coca-Cola normal e Coca Zero.
 
 <center><img src="poster.jpg" width=350></center>
+
 
 
   Resposta                      | Copo tem Coca-cola  | Copo tem Coca Zero|   Total    
@@ -37,97 +36,150 @@ A probabilidade do aluno identificar corretamente $x$ copos como Coca-Cola, dent
 
 $$P(X=x)=\frac{\binom{r}{x}\binom{N-r}{n-x}}{\binom{N}{n}}, \qquad 0\leq x \leq min\{r,n\}$$
 
-### Experimento realizado
+### Planejamento do Experimento
 
-* $N=12$
+* $N=zzzz$
 
-* $r=6$ com Coca-Cola
+* $r=zzzz$ com Coca-Cola
 
-* $N-r=6$ com Coca Zero
+* $N-r=zzzz$ com Coca Zero
 
 * O aluno é informado do total de copos com Coca-Cola e do total de copos com Coca Zero.
 
-* Os copos são apresentados em ordem aleatória para o aluno provar e escolher $n=6$
+* Os copos são apresentados em ordem aleatória para o aluno provar e escolher $n=zzzz$
  que ele acha que tem Coca-Cola.
 
 ### Teste de Hipótese
 
-* $H_0$: o aluno não sabe distinguir entre Coca-Cola e Coca Zero e seleciona os $n=6$ copos ao acaso.
+* $H_0$: o aluno não sabe distinguir entre Coca-Cola e Coca Zero e seleciona os $n=zzzz$ copos ao acaso.
+
+* $H_a$: o aluno sabe distinguir entre Coca-Cola e Coca Zero.
 
 * Estatística do teste  é  a variável aleatória $X$: número de acertos.
 
 * Sob $H_0$, a distribuição de probabilidade da estatística do teste é dada por:
 
-$$P(X=x)=\frac{\binom{6}{x}\binom{6}{6-x}}{\binom{12}{6}}, \qquad 0\leq x \leq 6$$
-**Parte 1** Obtenha a distribuição de probabilidade para todos os valores de $X$:
+$$P(X=x)=\frac{\binom{zzzz}{x}\binom{zzzz}{zzzz-x}}{\binom{zzzz}{zzzz}}, \qquad 0\leq x \leq zzzz$$
 
 ```{r,echo=FALSE}
 library(MASS)
-p0 = fractions(dhyper(xxxxxx)) # P(X=0)
-p1 = fractions(dhyper(xxxxxx)) # P(X=1)
-p2 = fractions(dhyper(xxxxxx)) # P(X=2)
-p3 = fractions(dhyper(xxxxxx)) # P(X=3)
-p4 = fractions(dhyper(xxxxxx)) # P(X=4)
-p5 = fractions(dhyper(xxxxxx)) # P(X=5)
-p6 = fractions(dhyper(xxxxxx)) # P(X=6)
-
+p0 = fractions(dhyper(0,zzzz)) # P(X=0)
+p1 = fractions(dhyper(1,zzzz)) # P(X=1)
+p2 = fractions(dhyper(2,zzzz)) # P(X=2)
+p3 = fractions(dhyper(3,zzzz)) # P(X=3)
+p4 = fractions(dhyper(4,zzzz)) # P(X=4)
+p5 = fractions(dhyper(5,zzzz)) # P(X=5)
+# p6 = fractions(dhyper(6,zzzz)) # P(X=6)
 ```
 
-$$P(X=0) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p0)` $$
+$$P(X=0) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p0)` $$
 
-$$P(X=1) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p1)` $$
+$$P(X=1) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p1)` $$
 
-$$P(X=2) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p2)` $$
+$$P(X=2) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p2)` $$
 
-$$P(X=3) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p3)` $$
+$$P(X=3) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p3)` $$
 
-$$P(X=4) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p4)` $$
+$$P(X=4) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p4)` $$
 
-$$P(X=5) =\frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p5)` $$
-$$P(X=6) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(p6)` $$
+$$P(X=5) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p5)` $$
+
+(verifique se necessária esta parte no seu caso)
+$$P(X=6) = \frac{\binom{zzzz}{zzzz}\binom{zzzz}{zzzz}}{\binom{zzzz}{zzzz}}=`r as.character(p6)` $$
 
 
 * De maneira que a distribuição de probabilidade de $X$, número de acertos, sob $H_0$, é dada por:
 
 ```{r,echo=FALSE,fig.align='center'}
-barplot(c(p0,p1,p2,p3,p4,p5,p6), names.arg=0:6, col="blue", main="", 
+barplot(c(p0,p1,p2,p3,zzzzzzz), names.arg=0:zzzz, col="blue", main="", 
             cex.lab=1.5, cex.axis=1.3, cex.names=1.3, cex.main=2, las=1, xlab="x", ylab="P(X=x)",ylim=c(0,1))
 ```
 
-**Parte 2**  Após a realização do experimento, observamos o número de copos identificados corretamente como tendo Coca-cola: $x=XXCOMPLETE$. 
+## Experimento 1
 
-* Temos a seguinte tabela observada:
+O(a) aluno(a) XXXXXXX realizou o experimento tendo como resultados:
+
 
   Resposta                      | Copo tem Coca-cola  | Copo tem Coca Zero|   Total    
 ------------------------| ------------------------- | ------------------------- |---------- 
-**Aluno diz coca-cola** | $x=XXCOMPLETE$                       |          $6-XXCOMPLETE$              | $6$ 
+**Aluno diz coca-cola** | $x=zzzz$                       |          $zzzzz$              | $zzzz$ 
 **Aluno diz coca zero** |                     |                        | 
-            **Total**              | $6$                   | $6$                     | $12$      
+            **Total**              | $zzzz$                   | $zzzz$                     | $zzzz$      
 
 
 
-* Sob $H_0$, qual a probabilidade de obter uma tabela como essa? Isto é, se o aluno não sabe distinguir e escolhe os copos ao acaso, qual a chance de observarmos um resultado como esse?
-
-**Parte 3** A probabilidade de obter uma tabela como essa é dada por:
-
-$$P(X=XX) = \frac{\binom{xx}{xx}\binom{xx}{xx}}{\binom{xx}{xx}}=`r as.character(pXX)` $$
+* Sob $H_0$, qual a probabilidade de obter uma tabela como essa? Isto é, se o(a) XXXXX não sabe distinguir e escolhe os copos ao acaso, qual a chance de observarmos um resultado como esse?
 
 
-**Parte 4** Caso o aluno tivesse acertado todos os copos, teríamos ainda mais evidência contra $H_0$? Devemos então incluir as probabilidades de resultados ainda "mais extremos" contra $H_0$. Calcule o valor de p.
 
-* Valor de p é dado por `r XXXXX`.
+* A probabilidade de obter uma tabela como essa é dada por:
 
-**Parte 5** Qual a conclusão que você chega?
+$$P(X=zzzzzz) = \frac{\binom{zzzzz}{zzzzz}\binom{zzzzz}{zzzzz}}{\binom{zzzz}{zzzzz}}=`r as.character(zzzzzz)` $$
 
-**Parte 6** Procure sobre a função `fisher.test` e aplique no experimento obtido para calcular o valor de p. 
+
+* Valor de p é dado por $$ zzzzzzzzzz   $$
+
+
+* Qual a conclusão que você chega?
+
+* Procure sobre a função `fisher.test` e aplique no experimento obtido para calcular o valor de p. 
 
 ```{r,echo=TRUE}
-# coloque seu codigo aqui
-# construa a matrix da tabela 2x2
-# use a funcao fisher.test corretamente na tabela criada
+experimento <- matrix(c(ZZZZZZZZ),
+              nrow = 2,
+              dimnames = list(Copo_tinha=c("Coca-Cola","Coca Zero"),
+                              Aluno_disse=c("Coca-Cola","Coca Zero")));
+
+experimento
+
+fisher.test(experimento, alternative = "zzzzzzzz")
 ```
 
-**Parte 7** Se o número de copos preparados no experimento fosse 10 (5 de cada tipo) e o aluno acertasse todos os 5, você teria evidências suficientes para rejeitar $H_0$? Justifique com cálculos de probabilidades. 
+
+## Experimento 2
+
+O(a) aluno(a) XXXXXXX realizou o experimento tendo como resultados:
+
+
+  Resposta                      | Copo tem Coca-cola  | Copo tem Coca Zero|   Total    
+------------------------| ------------------------- | ------------------------- |---------- 
+**Aluno diz coca-cola** | $x=zzzz$                       |          $zzzzz$              | $zzzz$ 
+**Aluno diz coca zero** |                     |                        | 
+            **Total**              | $zzzz$                   | $zzzz$                     | $zzzz$      
+
+
+
+* Sob $H_0$, qual a probabilidade de obter uma tabela como essa? Isto é, se o(a) XXXXX não sabe distinguir e escolhe os copos ao acaso, qual a chance de observarmos um resultado como esse?
+
+
+
+* A probabilidade de obter uma tabela como essa é dada por:
+
+$$P(X=zzzzzz) = \frac{\binom{zzzzz}{zzzzz}\binom{zzzzz}{zzzzz}}{\binom{zzzz}{zzzzz}}=`r as.character(zzzzzz)` $$
+
+
+* Valor de p é dado por $$ zzzzzzzzzz   $$
+
+
+* Qual a conclusão que você chega?
+
+* Procure sobre a função `fisher.test` e aplique no experimento obtido para calcular o valor de p. 
+
+```{r,echo=TRUE}
+experimento <- matrix(c(ZZZZZZZZ),
+              nrow = 2,
+              dimnames = list(Copo_tinha=c("Coca-Cola","Coca Zero"),
+                              Aluno_disse=c("Coca-Cola","Coca Zero")));
+
+experimento
+
+fisher.test(experimento, alternative = "zzzzzzzz")
+```
+
+
+
+
+Se o número de copos preparados no experimento fosse 6 (3 de cada tipo) e o aluno acertasse todos os 3, você teria evidências suficientes para rejeitar $H_0$? Justifique com cálculos de probabilidades. 
 
 
 
