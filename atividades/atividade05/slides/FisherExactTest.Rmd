@@ -28,11 +28,11 @@ Em um de seus famosos experimentos, ele testou a capacidade de uma senhora em di
 
 Como planejar um experimento para testar a capacidade da pessoa distinguir se o chá foi preparado com leite primeiro ou por último?
 
-* Como lidar com variações na temperatura do chá, quantidade de açúcar, entre outras?
+> * Como lidar com variações na temperatura do chá, quantidade de açúcar, entre outras?
 
-* Quantas xícaras devem ser usadas no teste? Qual a ordem de apresentação dessas xícaras?
+> * Quantas xícaras devem ser usadas no teste? Qual a ordem de apresentação dessas xícaras?
 
-* Qual conclusão iremos tirar caso a pessoa erre somente uma vez? Ou duas vezes?
+> * Qual conclusão iremos tirar caso a pessoa erre somente uma vez? Ou duas vezes?
 
 
 ## Experimento {.build}
@@ -115,26 +115,31 @@ barplot(c(choose(4,4)*choose(4,0),choose(4,3)*choose(4,1),choose(4,2)*choose(4,2
             cex.lab=1.5, cex.axis=1.3, cex.names=1.3, cex.main=2, las=1, xlab="Total de acertos", ylab="Total de maneiras")
 ```
 
-## Teste de hipótese
+## Teste de hipótese {.build}
 
 * $H_0$: A senhora não consegue distinguir entre chá ou leite primeiro e escolhe ao acaso durante o experimento.
 
-* $H_a$: A senhora consegue distinguir.
+> * $H_a$: A senhora consegue distinguir.
 
-* Estatística do teste: Total de acertos ($X$)
+> * Estatística do teste: Total de acertos ($X$)
 
-* Para decidir, precisamos da distribuição de probabilidade da estatística do teste quando $H_0$ é verdadeira.
+> * Para decidir, precisamos primeiramente da distribuição de probabilidade da estatística do teste quando $H_0$ é verdadeira.
 
-## Distribuição Hipergeométrica
+## Distribuição Hipergeométrica {.build}
 
 * População dividida em duas características
-* Extrações casuais sem reposição
-* $N$ objetos
-* $r$ têm a característica A
-* $N-r$ têm a característica B 
-* um grupo de $n$ elementos é escolhido ao acaso, dentre os $N$ possíveis, sem reposição. 
 
-Queremos calcular a probabilidade de que este grupo de $n$ elementos contenha $x$ elementos com a característica A.
+> * Extrações casuais sem reposição
+
+> * $N$ objetos
+
+> * $r$ têm a característica A
+
+> * $N-r$ têm a característica B 
+
+> * um grupo de $n$ elementos é escolhido ao acaso, dentre os $N$ possíveis, sem reposição. 
+
+> Queremos calcular a probabilidade de que este grupo de $n$ elementos contenha $x$ elementos com a característica A.
 
 ## Distribuição Hipergeométrica {.smaller}
 
@@ -230,21 +235,6 @@ $$P(X=3)+P(X=4)=`r as.character(p3)` + `r as.character(p4)` = `r as.character(pv
 
 > Se este valor for considerado alto, não temos evidências, baseando-se no experimento realizado, para rejeitar $H_0$. 
 
-## Teste Exato de Fisher
-
-
-  Variável 1/Variável 2                      |  $2A$  |  $2B$|   Total    
-------------------------| ------------------------- | ------------------------- |---------- 
-**$1A$** | $x$                       |            $n-x$            | $n$ 
-**$1B$** |                     |                       | $N-n$ 
-            **Total**              | $r$                   | $N-r$                     | $N$      
-
-
-* $H_0$: variáveis 1 e 2 independentes
-
-* Sob $H_0$, qual a probabilidade de se obter a tabela observada no experimento realizado? (Margens fixas: Hipergeométrica).
-
-* Sob $H_0$, qual a probabilidade de se obter tabelas "mais extremas" (mais distantes de $H_0$, na "direção" de $H_a$), quando fixamos as marginais da tabela observada?
 
 
 ## Teste Exato de Fisher {.smaller}
@@ -255,9 +245,9 @@ $$P(X=3)+P(X=4)=`r as.character(p3)` + `r as.character(p4)` = `r as.character(pv
 **2** |    $c$                 |           $d$            | $n_2$ 
             **Total**              | $m_1$                   | $m_2$                     | $n$      
 
-$\hat{p}_1 = \frac{a}{n_1}$ é a proporção amostral de sucessos no tratamento 1.
+$\widehat{p_1} = \frac{a}{n_1}$ é a proporção amostral de sucessos no tratamento 1.
 
-$\hat{p}_2 = \frac{a}{n_2}$ é a proporção amostral de sucessos no tratamento 2.
+$\widehat{p_2} = \frac{c}{n_2}$ é a proporção amostral de sucessos no tratamento 2.
 
 $H_0$: a probabilidade de sucesso é a mesma em cada um dos tratamentos, isto é, $p_1=p_2$.
 
@@ -305,17 +295,19 @@ Tabela 1 é a observada
             **Total**              | $m_1=5$                   | $m_2=9$                     | $n=14$     
             
 
-$$x_{1}=\frac{1}{6}-\frac{4}{8}$$
+$$x_{obs}=x_{1}=\frac{1}{6}-\frac{4}{8}$$
 
-## Exemplo {.smaller}
+## Exemplo {.smaller .build}
 
 Sob $H_0$, isto é, considerando o caso em que $H_0$ seja verdadeira, temos que a chance de ter gripe é a mesma, independente do fato da pessoa ter tomado a vacina ou não.
 
-Quantas formas possíveis temos de escolher 5 pessoas a partir de um grupo de 14 pessoas? (14 pessoas no total e 5 com gripe, independente de terem tomado vacina ou não):
+> Quantas formas possíveis temos de escolher 5 pessoas a partir de um grupo de 14 pessoas? (14 pessoas no total e 5 com gripe, independente de terem tomado vacina ou não):
+
+> 
 
 $$\binom{14}{5}=`r choose(14,5)`$$
 
-Para observarmos $x_{1}=\frac{1}{6}-\frac{4}{8}$, necessariamente, duas coisas ocorreram:
+> Para observarmos $x_{1}=\frac{1}{6}-\frac{4}{8}$, necessariamente, duas coisas ocorreram:
 
 Dentre as pessoas que tomaram vacina, 1 teve gripe e, dentre as pessoas que não tomaram vacina, 4 tiveram gripe. De quantas formas isso pode ocorrer, sendo que temos 6 pessoas que tomaram a vacina e 8 que não tomaram?
 
@@ -401,13 +393,13 @@ $$x_{6}=\frac{5}{6}-\frac{0}{8}$$
 
  $$P(X=x_6)=P\left(X=\frac{5}{6}-\frac{0}{8}\right)=\frac{\binom{6}{5}\times\binom{8}{0}}{\binom{14}{5}}=\frac{`r choose(6,5)* choose(8,0)`}{`r choose(14,5)`}$$
 
-## Exemplo
+## Exemplo {.build}
 
 Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
 
-$H_a$: $p1<p_2$, isto é $P(gripe|vacina)<P(gripe|semvacina)$
+> $H_a$: $p1<p_2$, isto é $P(gripe|vacina)<P(gripe|semvacina)$
 
-O valor de $p$ é calculado como $P(X\leq x)=P\left(X\leq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_2)=\frac{`r choose(6,1)* choose(8,4)`}{`r choose(14,5)`}+\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}$
+> O valor de $p$ é calculado como $P(X\leq x_{obs})=P\left(X\leq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_2)=\frac{`r choose(6,1)* choose(8,4)`}{`r choose(14,5)`}+\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}$
 
 ## Exemplo {.smaller}
 
@@ -423,17 +415,17 @@ fisher.test(tabela, alternative = "less")
 ```
 
 
-## Exemplo
+## Exemplo {.build}
 
 Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
 
 $H_a$: $p1>p_2$, isto é $P(gripe|vacina)>P(gripe|semvacina)$
 
-O valor de $p$ é calculado como 
+> O valor de $p$ é calculado como 
 
 $$
 \begin{eqnarray}
-P(X\geq x)&=&P\left(X\geq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_3)+P(X=x_4)\\
+P(X\geq x_{obs})&=&P\left(X\geq \frac{1}{6}-\frac{4}{8}\right)=P(X=x_1)+P(X=x_3)+P(X=x_4)\\
 &+&P(X=x_5)+P(X=x_6)=1-P(X=x_2)=1-\frac{\binom{6}{0}\times\binom{8}{5}}{\binom{14}{5}}\\
 &=&1-\frac{`r choose(6,0)* choose(8,5)`}{`r choose(14,5)`}
 \end{eqnarray}
@@ -454,18 +446,17 @@ fisher.test(tabela, alternative = "greater")
 
 
 
-## Exemplo
+## Exemplo {.build}
 
 Conhecemos agora a distribuição de probabilidade da estatística do teste sob $H_0$. Agora, para a $H_a$ de interesse, podemos calcular o valor de $p$.
 
 $H_a$: $p1\neq p_2$, isto é $P(gripe|vacina)\neq P(gripe|semvacina)$
 
-O valor de $p$ é calculado como 
+> O valor de $p$ é calculado como 
 
 $$
 \begin{eqnarray}
-P(X\geq |x|)+P(X\leq -|x|)&=&
-fdfd
+P(X\geq |x_{obs}|)+P(X\leq -|x_{obs}|)=P\left(X\geq \left |\frac{1}{6}-\frac{4}{8}\right|\right)+P\left(X\leq -\left|\frac{1}{6}-\frac{4}{8}\right|\right)
 \end{eqnarray}
 $$
 
