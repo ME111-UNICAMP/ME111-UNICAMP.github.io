@@ -1,0 +1,155 @@
+# Atividade 6
+
+## Meu dado é honesto!!
+
+
+### Probabilidade
+
+**Probabilidade** é uma medida de incerteza sobre eventos de interesse. Tais eventos, em geral, estão associados a **experimentos aleatórios**.
+
+Um experimento aleatório  é um experimento para qual não se tem certeza sobre seus resultados, a priori. Exemplos de experimentos aleatórios:
+
+* lançar um dado
+
+* lançar um moeda
+
+* girar um roleta
+
+Imagine que você está jogando Ludo, jogo em que um dado é usado para movimentar as peças no tabuleiro. Você está jogando com um colega e está vencendo. Muito observador, você notou que o número 6 já saiu 23 vezes em 100 jogadas. Seu oponente então comenta que isso é muito estranho e que o dado deve estar com problema, que o jogo deve ser cancelado!! Como você poderia argumentar com seu colega? Ele está certo? Como avaliar?
+
+Aprendemos que a probabilidade de observamos o número 6 após o lançamento de um dado é $1/6$. Mas o que isso significa? Significa que, se lançarmos o dado 6 vezes, iremos observar o 6 apenas 1 vez???
+
+Em um fenômeno aleatório, a probabilidade de um resultado acontecer é a proporção de vezes que o resultado ocorreu quando consideramos muitas observações do fenômeno em questão.
+
+
+
+### Como calcular probabilidades?
+
+Algumas vezes, é possível fazer alguma suposição sobre o fenômeno aleatório considerado. Por exemplo, ao lançar um dado, podemos assumir que cada face tenha a mesma chance de ocorrer. Como temos $6$ faces, cada face tem $1/6$ de chance. Outras vezes, podemos utilizar a distribuição de frequências observadas como uma estimativa das probabilidades, este seria o procedimento empírico.
+
+O **procedimento empírico** para estudar as probabilidades de ocorrência das faces de um dado é:
+
+* lançar o dado um certo número $n$ de vezes
+* contar o número de vezes, $n_i$, que a face $i=1,2,3,4,5,6$ ocorre.
+* calcular a proporção, $p_i=\frac{n_i}{n}$, que a face $i=1,2,3,4,5,6$ ocorre.
+
+Para diferentes vezes que esse experimento for realizado, a distribuição de frequência terá resultados diferentes. No entanto, espera-se que esses resultados, apesar de distintos, sejam semelhantes.
+
+O **procedimento teórico** para estudar as probabilidades de ocorrência das faces de um dado é:
+
+* fazer algumas suposições: só podem ocorrer 6 faces (1,2,3,4,5,6).
+* o dado é perfeitamente equilibrado
+* então cada face deve ocorrer com igual probabilidade: $p_i=1/6$.
+
+
+### Espaço amostral, Eventos
+
+Para quantificar incerteza em fenômenos aleatórios usando probabilidades, precisamos primeiro especificar o conjunto de todos os possíveis resultados do fenômeno em questão.
+
+* **Espaço amostral**: conjunto de todos os resultados possíveis do experimento aleatório, denotado por 
+
+$$\Omega=\{\omega_1,\omega_2,\ldots\}\,.$$
+
+* **Probabilidade**: cada "ponto amostral", $\omega$, tem associado a ele uma probabilidade de ocorrência, $P(\omega)$.
+
+* **Evento**: subconjunto do espaço amostral. Denotamos eventos pelas letras $A$, $B$, $C$, etc... Dizemos que o evento $A$ ocorreu sempre que o resultado observado do experimento pertencer ao subconjunto de elementos do evento $A$.
+
+
+### Lei dos Grandes Números
+
+*Se um evento de probabilidade $p$ é observado repetidamente em ocasiões independentes, a proporção da frequência observada deste evento em relação ao número total de repetições converge em direção a $p$ à medida que o número de repetições se torna arbritrariamente grande*
+
+Este foi um resultado provado em 1689 pelo matemático suíço Jacob Bernoulli.
+
+
+Desta maneira, quando dizemos que a probabilidade do 6 sair no dado é $1/6$, estamos dizendo que a proporção esperada de 6 em vários lançamentos (observações) do dado é $1/6$.
+
+#### Lei dos Grandes Números na prática
+
+
+Você irá trabalhar em dupla com um colega. Um lança o dado 50 vezes e o outro vai anotando os resultados. Depois vocês trocam os papéis, repetindo mais 50 vezes. Salvem o resultado de cada lançamento na linha apropriada na [planilha](https://docs.google.com/a/unicamp.br/spreadsheets/d/1w4zmFrrPCOLpaamjJ77JMOuGePYQPPuBYtiEkPSoqR0/edit?usp=sharing). Certifique-se de que seu colega preencha apenas a linha correspondente ao seu RA.
+
+
+O comando a seguir importa para o R a planilha com os dados de todos os alunos.
+
+```{r,echo=TRUE,message=FALSE}
+library(downloader)
+download("https://docs.google.com/spreadsheets/d/1w4zmFrrPCOLpaamjJ77JMOuGePYQPPuBYtiEkPSoqR0/pub?gid=0&single=true&output=csv","DadosClasse.csv")
+TodosDados <- read.csv("DadosClasse.csv")
+```
+
+**Parte 1. ** A tabela a seguir apresenta apenas os seus resultados obtidos durante a aula.
+
+```{r,echo=FALSE}
+meusDados <- TodosDados[XXXXXXX,XXXXXX] # deve conter apenas a linha do seu RA (encontre a linha usando um comando, não procure "manualmente" e coloque o número da linha diretamente), apenas as colunas com os resultados dos 50 lançamentos
+Experimento <- 1:length(meusDados) # vetor indicando o número do experimento/lançamento
+Acumulado <-  #### vetor cujo elemento i é a proporção acumulada de 6 até o i-ésimo lançamento. A função cumsum pode ser útil aqui.
+```
+```{r,echo=FALSE}
+library(knitr)
+kable(cbind(Experimento,t(meusDados),Acumulado), format = "markdown",row.names=FALSE,col.names=c("Número de lançamentos","Face","Proporção Acumulada de 6"))
+```
+
+**Parte 2. ** O gráfico a seguir apresenta a proporção acumulada de 6 ao longo dos 50 lançamentos que você realizou durante a aula. A linha horizontal em vermelho indica a probabilidade teórica de observarmos a face 6: $1/6$.
+```{r,echo=FALSE}
+plot(x=XXXX,y=XXXXX,type="l",xlab="Número de Lançamentos",ylab="Proporção Acumulada de 6",ylim=c(0,1))
+abline(h=1/6,col="red")
+```
+
+
+
+**Parte 3. ** Repita o gráfico anterior, mas agora considerando os lançamentos de todos os colegas da classe.
+Os comandos **unlist** e **na.omit** serão úteis, procure entender o que eles fazem.
+
+
+```{r,echo=FALSE}
+classeDados <- #### vetor contendo todos os lançamentos, de todos os alunos, excluindo dados faltantes
+Experimento <- 1:length(classeDados)
+Acumulado <- #### vetor cujo elemento i é a proporção acumulada de 6 até o i-ésimo lançamento. A função cumsum pode ser útil aqui.
+```
+
+```{r,echo=FALSE}
+plot(x=XXXXXX,y=XXXXXXX,type="l",xlab="Número de Lançamentos",ylab="Proporção Acumulada de 6",ylim=c(0,1))
+abline(h=1/6,col="red")
+```
+
+**Parte 4. ** O histograma a seguir apresenta a distribuição da proporção de 6 nos 50 lançamentos de cada um dos seus colegas. 
+
+```{r,echo=FALSE}
+# a função complete.cases pode ajudar, visto alguns alunos não preencheram os dados
+propor <- apply(XXXXXX, X, function (x) XXXXXX) # vetor cujo elemento i contém a proporção observada de 6 entre os 50 lançamentos do colega i
+hist(propor,xlab="Proporção de 6 em 50 lançamentos",ylab="Frequência",main="")
+```
+
+**Parte 5. **  Discuta o histograma. 
+
+XXXXX O que é importante notar? Ele é simétrico? Ou assimétrico? Qual a medida central? Qual o desvio padrão? Qual a porcentagem de observaçoes 2 dp acima da média? e 2 dp abaixo?
+Calcule estatísticas sumárias se necessário para embasar seus comentários. Apague este trecho de instruções após incluir sua resposta XXXXXX
+
+### Lei dos Grandes Números: simulação computacional
+
+
+O R possui a função **dice** do pacote **TeachingDemos** para simular lançamentos de um dado.
+
+```{r,message=FALSE}
+library(TeachingDemos)
+x <- dice(rolls=100,ndice=1) # preste atençao: x é um vetor? um data.frame? qual o nome das colunas?
+plot.dice(x)
+```
+
+**Parte 6. ** O gráfico a seguir apresenta a proporção acumulada de 6 ao longo dos 100 lançamentos simulados. A linha horizontal em vermelho indica a probabilidade teórica de observarmos a face $6$: $1/6$.
+```{r,echo=FALSE}
+dadosSimulado <- data.frame(Experimentos=1:100,Face=XXXXXX) # a primeira coluna indica o lançamento do dado simulado, a segunda coluna indica o resultado obtido no lançamento
+dadosSimulado$Acumulado <- #### coluna cujo elemento i é a proporção acumulada de 6 até o i-ésimo lançamento. A função cumsum pode ser útil aqui.
+plot(x=XXXXXX,y=XXXXXX,type="l",xlab="Número de Lançamentos",ylab="Proporção Acumulada de 6",ylim=c(0,1))
+abline(h=1/6,col="red")
+```
+
+**Parte 7. ** O gráfico a seguir apresenta a proporção acumulada de 6 ao longo dos 10000 lançamentos simulados. A linha horizontal em vermelho indica a probabilidade teórica de observarmos a face $6$: $1/6$.
+```{r,echo=FALSE}
+x <- dice(rolls=10000,ndice=1)
+dadosSimulado <- data.frame(Experimentos=1:10000,Face=XXXXXXX) # a primeira coluna indica o lançamento do dado simulado, a segunda coluna indica o resultado obtido no lançamento
+dadosSimulado$Acumulado <- #### coluna cujo elemento i é a proporção acumulada de 6 até o i-ésimo lançamento. A função cumsum pode ser útil aqui.
+plot(x=XXXXXXX,y=XXXXXXX,type="l",xlab="Número de Lançamentos",ylab="Proporção Acumulada de 6",ylim=c(0,1))
+abline(h=1/6,col="red")
+```
