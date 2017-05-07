@@ -113,18 +113,23 @@ plot(x=XXXXXX,y=XXXXXXX,type="l",xlab="Número de Lançamentos",ylab="Proporçã
 abline(h=1/6,col="red")
 ```
 
-**Parte 4. ** O histograma a seguir apresenta a distribuição da proporção de 6 nos 50 lançamentos de cada um dos seus colegas. 
+**Parte 4. ** O histograma de probabilidade a seguir apresenta a distribuição da proporção de 6 nos 50 lançamentos de cada um dos seus colegas. Adicione uma curva Normal sobre o histograma, com parâmetros $\mu=1/6$ e $\sigma^2=\frac{1}{n}\times\frac{1}{6}\times\frac{5}{6}$.
 
 ```{r,echo=FALSE}
 # a função complete.cases pode ajudar, visto alguns alunos não preencheram os dados
+# leia o help de hist para opções de histograma de probabilidade
+# Google: histogram with normal curve in r
 propor <- apply(XXXXXX, X, function (x) XXXXXX) # vetor cujo elemento i contém a proporção observada de 6 entre os 50 lançamentos do colega i
-hist(propor,xlab="Proporção de 6 em 50 lançamentos",ylab="Frequência",main="")
+hist(propor,xlab="Proporção de 6 em 50 lançamentos",ylab="=",main="",XXXXXX) ## outra opcao a serem modificada no lugar de XXXX
+
+# adicione a curva normal
 ```
 
 **Parte 5. **  Discuta o histograma. 
 
 XXXXX O que é importante notar? Ele é simétrico? Ou assimétrico? Qual a medida central? Qual o desvio padrão? Qual a porcentagem de observaçoes 2 dp acima da média? e 2 dp abaixo?
 Calcule estatísticas sumárias se necessário para embasar seus comentários. Apague este trecho de instruções após incluir sua resposta XXXXXX
+
 
 ### Lei dos Grandes Números: simulação computacional
 
