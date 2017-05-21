@@ -1,0 +1,177 @@
+---
+title: "Atividade 8"
+runtime: shiny
+output: html_document
+---
+
+### Introdução
+
+
+Imagine que você esteja interessado em saber a distância média, em km, da moradia de cada aluno até a UNICAMP. Imagine também uma situação em que não será possível entrevistar todos eles. O que fazer?
+
+Podemos obter uma estimativa da distância média perguntando apenas para uma parte da população de interesse. Mas, quão boa seria esta estimativa? Ela é precisa? A forma como coletamos "parte da população" influencia na precisão desta estimativa?
+
+Nesta atividade, o objetivo é investigar os meios pelos quais as estatísticas de uma amostra aleatória de dados podem servir como estimativas pontuais de parâmetros populacionais. Estamos interessados em formular uma distribuição amostral de nossa estimativa para aprender sobre as propriedades da estimativa, como sua distribuição.
+
+
+Vamos considerar um estudo de simulação a partir de população para avaliar algumas propriedades da estimativa.
+
+Um questionário sobre distância de casa até a Unicamp foi respondido por alguns alunos/professores. As pessoas que responderam a este questionário serão consideradas como nossa população (apenas para propósito das simulações nesta atividade). Na prática, dificilmente temos informação completa sobre a população, de maneira que temos que utilizar amostragem e inferência estatísticas para obter informações sobre a população.
+
+
+
+```{r echo=FALSE}
+
+library(downloader)
+download("https://docs.google.com/spreadsheets/d/1QcKL4yKPKfpEp_w-IjXN7AUrgQfDYyXwXQBcy-dX_XU/pub?gid=1930158026&single=true&output=csv","distancia.csv")
+
+distancia <- read.csv("distancia.csv")
+
+# convertendo número com separador decimal de virgula para ponto
+distancia$km <- as.numeric(gsub(pattern=",",replacement=".",distancia$Qual.a.distância..em.km..da.sua.casa.até.a.UNICAMP.))
+
+```
+
+### Parte 1
+
+Considere a seguinte população: pessoas da Unicamp que responderam à pergunta: "Qual a distância, em km, da sua casa até a UNICAMP?". Denotaremos cada aluno por um número, $i$ ($i=1,2,\ldots,`r length(distancia$km)`$) e a resposta de cada aluno por $Y_i$.
+
+O histograma a seguir apresenta a distribuição das distâncias respondidas.
+
+```{r,echo=FALSE}
+hist(XXXXX,breaks=20,col="lightblue",ylab="Frequência",xlab="Distância",main="Distância de casa até a UNICAMP")
+
+### conjunto de dados em que a primeira coluna indica o aluno e a segunda coluna a resposta dele
+
+Populacao <- data.frame(id=1:length(distancia$km),Y=distancia$km)
+```
+
+A distância média de casa até a UNICAMP para estes alunos é $\bar{Y}=\frac{1}{N}\sum_{i=1}^NY_i=`r round(xxxxxxxx,2)`$. Temos duas maneiras de definir a variância populacional: $S^2=\frac{1}{N-1}\sum_{i=1}^N(Y_i-\bar{Y})^2=`r round(xxxxxxx,2)`$ e $\sigma^2=\frac{1}{N}\sum_{i=1}^N(Y_i-\bar{Y})^2=`r round(xxxxxxx,2)`$.
+
+### Parte 2
+
+Agora, **imagine que toda esta informação nos seja desconhecida**. Vamos, então, coletar uma amostra aleatória dentre os alunos da população (os `r length(distancia$km)` alunos). O primeiro passo para coletar uma amostra aleatória a partir de uma população é listar todos os elementos, $N$, da mesma. A partir da lista devemos escolher, aleatoriamente, uma amostra de tamanho $n$. Deve-se definir, também, se a seleção aleatória será com ou sem reposição dos elementos da população.
+
+
+Temos $N=`r dim(Populacao)[1]`$ alunos. Há $N^n$ maneiras de amostrarmos $n$ elementos dentre $N$ com reposição. Temos $\binom{N}{n}$ maneiras de amostrarmos $n$ elementos dentre $N$ sem reposição.
+
+
+Considere que uma amostra tenha sido feita e que, para cada aluno amostrado, tenhamos coletado a informação desejada, $Y_i^*$. Como temos interesse na distância média da população toda, calculamos também a média das distâncias observadas na amostra, denotando por $\bar{Y}^*$.
+
+As respostas da população, $Y_i$, nos são desconhecidas, porém podemos pensar que são "fixas". Já a média obtida através de uma amostra aleatória, $\bar{Y}^*$, muda cada vez que selecionarmos uma amostra novamente. $\bar{Y}^*$ é uma variável aleatória, portanto tem distribuição de probabilidade, esperança e variância. Para estudarmos sua distribuição de probabilidade, devemos considerar todas as $\binom{N}{n}$ amostras possíveis (caso sem reposição), calcular a distância média para cada uma dessas amostras e então, calcular a probabilidade de cada valor possível que a média da amostra pode assumir. Com a distribuição definida, basta calcular esperança e variância.
+
+Como até para um exemplo com uma população reduzida a número de amostras é bastante grande, iremos usar simulação para estudar a distribuição de probabilidade da média amostral, $\bar{Y}^*$.
+
+Para efeitos de simulação, usaremos a função a seguir, que seleciona aleatoriamente uma amostra de tamanho $n$ a partir de dados completos de uma população de tamanho $N$.
+
+```{r}
+Simulacao <- function(ID,Y,n,reposicao="nao"){
+  if (reposicao=="nao")
+    {
+    idAmostrado <- sample(x=XXX,size=XXX,replace=XXXX)
+    }
+  else
+    {
+    idAmostrado <- sample(x=XXX,size=XXX,replace=XXX)
+    }
+    YAmostrado <- XXXXXX # respostas da amostra
+    Media <- XXXXXX # média das respostas da amostra
+  return(list(idAmostrado=idAmostrado,YAmostrado=YAmostrado,Media=Media))
+  }
+```
+
+Portanto, se quisermos simular uma amostra de tamanho $n=20$ da população considerada, com reposição, usamos o comando:
+
+```{r}
+Simulacao(ID=Populacao$id,Y=Populacao$Y,n=20,reposicao="sim")
+```
+
+Note que a função retorna uma lista com 3 elementos: o identificador de cada aluno da população selecionado na amostra, a resposta do aluno e a média da amostra. Para estudar a distribuição de probabilidade de $\bar{Y}^*$ estamos interessados apenas no terceiro elemento desta lista de resultados.
+
+A função a seguir repete $B$ vezes a simulação de seleção de amostra aleatória de tamanho $n$ a partir da população:
+
+```{r}
+DistribuicaoMediaAmostral <- function(ID,Y,n,reposicao,B)
+  {
+  MediaAmostral <- matrix(NA,ncol=1,nrow=B)
+for (b in 1:B)
+  {
+  MediaAmostral[b] <- Simulacao(ID,Y,n,reposicao)[[3]] # seleciona o terceiro item da lista
+  }
+return(MediaAmostral=MediaAmostral)
+}
+```
+
+### Parte 3
+
+Usaremos o aplicativo Shiny do RStudio para avaliar de maneira dinâmica as simulações geradas a partir das duas funções acima.
+
+```{r,echo=FALSE,message=FALSE}
+selectInput("n","Escolha o tamanho de cada amostra:", choices=c(3,5,10,15,20,25,30,35,40))
+selectInput("reposicao","Com reposição?", choices=c("sim","nao"))
+selectInput("B","Número de amostras:", choices=c(30,100,1000,2000,3000))
+```
+
+
+```{r,echo=FALSE,message=FALSE}
+renderPlot(hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=as.numeric(input$n),reposicao=input$reposicao,B=as.numeric(input$B)),main="Distribuição da Média Amostral",ylab="Frequência", xlab="Média Amostral",col="lightpink"))
+options=list(
+    width="100%", height="100%")
+```
+
+### Parte 4
+
+Para resumir todos os casos em uma única tabela, iremos simular 3000 amostras para cada caso: combinação de tamanho amostral e tipo de seleção de amostral (com ou sem reposição). Para cada caso, iremos calcular a média das   3000 médias obtidas e também calculamos a variância amostral das 3000 médias obtidas.
+Na disciplina ME430 - Técnicas de Amostragem, vocês irão verificar que a variância amostral teórica é igual $\sigma^2/n$. No caso sem reposição, a variância amostral teórica é $\frac{1}{n}S^2(1-n/N)$. No entanto, quem tiver curiosidade depois, pode verificar para um tamanho de amostra bem reduzido, considerando todos os casos e fazendo os cálculos a partir da distribuição amostral obtida.
+
+```{r,echo=FALSE}
+casos <- data.frame(n=rep(c(3,5,10,15,20,25,30,35,40),2),reposicao=c(rep("sim",9),rep("nao",9)))
+
+Resultados <- apply(casos,1,function(x) list(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=x[1],reposicao=x[2],B=3000)))
+
+MediaAmostral <- unlist(lapply(Resultados,function(x) mean(unlist(x))))
+VarianciaAmostral <- unlist(lapply(Resultados,function(x) var(unlist(x))))
+
+BB <- data.frame(casos,MediaAmostral=round(MediaAmostral,2),VarianciaAmostral=round(VarianciaAmostral,2))
+
+S2 <- XXXXXX # $S^2$
+sigma2 <- XXXXXXX # $\sigma^2$
+
+BB$VarianciaAmostralTeorica <- ifelse(BB$reposicao=="sim",round(xxxxxxx,2),round(xxxxxx,2))
+colnames(BB) <- c("Tamanho da Amostra","Reposição?","Média Amostral: Média das 3000 Médias", "Variância Amostral: Variância das 3000 Médias","Variância Amostral Teórica")
+library(printr)
+BB
+```
+
+
+### Parte 4
+
+Observe os histogramas obtidos para $B=3000$ simulações para cada caso (combinação de tamanho amostral e tipo de seleção de amostra, usando o aplicativo Shiny acima). O que você nota com relação à distribuição de probabilidade da média amostral conforme o tamanho amostral aumenta. Ela se aproxima de alguma distribuição conhecida? Discuta.
+
+### Parte 5
+
+Na simulação, fizemos $3000$ amostras de tamanho $n$ e estudamos propriedades do estimador utilizado: a média. Agora, pense no caso real, em que você não conhece a população e irá fazer uma amostra.  Note que, no caso real, só iremos fazer **uma** amostra de tamanho $n$. Portanto, obteremos apenas uma média amostral: aquela da amostra que coletamos. 
+
+* A variância teórica, no caso em que não conhecemos a população, é possível de ser calculada? Explique. 
+
+* Qual a utilidade de calcularmos a variância teórica a partir de dados simulados? O que podemos aprender, através da variância teórica, sobre a estimativa do parâmetro de interesse? Discuta e coloque no contexto do problema proposto no início do exercício.
+
+
+### Parte 6
+
+
+**Teorema Central do Limite:** Para uma amostra aleatória simples $X_{1},...,X_{n}$ coletada de uma população com esperança $\mu$ e variância $\sigma^{2}$, a distribuição amostral de $\bar{X}_{n}$ aproxima-se de uma **distribuição Normal** de média $\mu$ e variância $\frac{\sigma^{2}}{n}$, quando $n$ for suficientemente grande.
+
+Portanto, utilizando o TCL, sabemos como se comportará a média amostral, $\bar{X_n}$.
+
+Apresente o histograma de probabilidade da média amostral para $B=3000$ simulações para um tamanho amostral da sua escolha e plano amostral com reposição. No mesmo gráfico, apresente a curva da distribuição normal para a qual a distribuição da média amostral se aproxima, segundo o TCL.
+
+
+```{r,echo=FALSE}
+hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=xxxxxxx,reposicao="sim",B=3000),main="Distribuição da Média Amostral",ylab=" ", xlab="Média Amostral",col="lightblue",probability = xxxxxxx)
+n=xxxxxxx
+mu = xxxxxxxxxx
+sigma = xxxxxxxxx
+x<-seq(from=10,to=50,by=.1)
+curve(dnorm(x,mean=mu,sd=sigma),add=TRUE,col="red")
+```
