@@ -46,7 +46,9 @@ hist(XXXXX,breaks=20,col="lightblue",ylab="Frequência",xlab="Distância",main="
 Populacao <- data.frame(id=1:length(distancia$km),Y=distancia$km)
 ```
 
-A distância média de casa até a UNICAMP para estes alunos é $\bar{Y}=\frac{1}{N}\sum_{i=1}^NY_i=`r round(xxxxxxxx,2)`$. Temos duas maneiras de definir a variância populacional: $S^2=\frac{1}{N-1}\sum_{i=1}^N(Y_i-\bar{Y})^2=`r round(xxxxxxx,2)`$ e $\sigma^2=\frac{1}{N}\sum_{i=1}^N(Y_i-\bar{Y})^2=`r round(xxxxxxx,2)`$.
+A distância média de casa até a UNICAMP para estes alunos é $\bar{Y}=\frac{1}{N}\sum_{i=1}^NY_i=`r round(xxxxxxxx,2)`$. 
+
+A variância populacional é definida por: $\sigma^2=\frac{1}{N}\sum_{i=1}^N(Y_i-\bar{Y})^2=`r round(xxxxxxx,2)`$.
 
 ### Parte 2
 
@@ -65,25 +67,18 @@ Como até para um exemplo com uma população reduzida a número de amostras é 
 Para efeitos de simulação, usaremos a função a seguir, que seleciona aleatoriamente uma amostra de tamanho $n$ a partir de dados completos de uma população de tamanho $N$.
 
 ```{r}
-Simulacao <- function(ID,Y,n,reposicao="nao"){
-  if (reposicao=="nao")
-    {
-    idAmostrado <- sample(x=XXX,size=XXX,replace=XXXX)
-    }
-  else
-    {
-    idAmostrado <- sample(x=XXX,size=XXX,replace=XXX)
-    }
-    YAmostrado <- XXXXXX # respostas da amostra
-    Media <- XXXXXX # média das respostas da amostra
+Simulacao <- function(ID,Y,n){
+    idAmostrado <- sample(x=ID,size=n,replace=TRUE)
+    YAmostrado <- Y[idAmostrado]
+    Media <- mean(YAmostrado)
   return(list(idAmostrado=idAmostrado,YAmostrado=YAmostrado,Media=Media))
   }
 ```
 
-Portanto, se quisermos simular uma amostra de tamanho $n=20$ da população considerada, com reposição, usamos o comando:
+Portanto, se quisermos simular uma amostra aleatória com reposição de tamanho $n=20$ da população considerada, com reposição, usamos o comando:
 
 ```{r}
-Simulacao(ID=Populacao$id,Y=Populacao$Y,n=20,reposicao="sim")
+Simulacao(ID=Populacao$id,Y=Populacao$Y,n=20)
 ```
 
 Note que a função retorna uma lista com 3 elementos: o identificador de cada aluno da população selecionado na amostra, a resposta do aluno e a média da amostra. Para estudar a distribuição de probabilidade de $\bar{Y}^*$ estamos interessados apenas no terceiro elemento desta lista de resultados.
@@ -91,12 +86,12 @@ Note que a função retorna uma lista com 3 elementos: o identificador de cada a
 A função a seguir repete $B$ vezes a simulação de seleção de amostra aleatória de tamanho $n$ a partir da população:
 
 ```{r}
-DistribuicaoMediaAmostral <- function(ID,Y,n,reposicao,B)
+DistribuicaoMediaAmostral <- function(ID,Y,n,B)
   {
   MediaAmostral <- matrix(NA,ncol=1,nrow=B)
 for (b in 1:B)
   {
-  MediaAmostral[b] <- Simulacao(ID,Y,n,reposicao)[[3]] # seleciona o terceiro item da lista
+  MediaAmostral[b] <- Simulacao(ID,Y,n)[[3]] # seleciona o terceiro item da lista
   }
 return(MediaAmostral=MediaAmostral)
 }
@@ -108,13 +103,12 @@ Usaremos o aplicativo Shiny do RStudio para avaliar de maneira dinâmica as simu
 
 ```{r,echo=FALSE,message=FALSE}
 selectInput("n","Escolha o tamanho de cada amostra:", choices=c(3,5,10,15,20,25,30,35,40))
-selectInput("reposicao","Com reposição?", choices=c("sim","nao"))
 selectInput("B","Número de amostras:", choices=c(30,100,1000,2000,3000))
 ```
 
 
 ```{r,echo=FALSE,message=FALSE}
-renderPlot(hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=as.numeric(input$n),reposicao=input$reposicao,B=as.numeric(input$B)),main="Distribuição da Média Amostral",ylab="Frequência", xlab="Média Amostral",col="lightpink"))
+renderPlot(hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,reposicao=input$reposicao,B=as.numeric(input$B)),main="Distribuição da Média Amostral",ylab="Frequência", xlab="Média Amostral",col="lightpink"))
 options=list(
     width="100%", height="100%")
 ```
@@ -125,20 +119,21 @@ Para resumir todos os casos em uma única tabela, iremos simular 3000 amostras p
 Na disciplina ME430 - Técnicas de Amostragem, vocês irão verificar que a variância amostral teórica é igual $\sigma^2/n$. No caso sem reposição, a variância amostral teórica é $\frac{1}{n}S^2(1-n/N)$. No entanto, quem tiver curiosidade depois, pode verificar para um tamanho de amostra bem reduzido, considerando todos os casos e fazendo os cálculos a partir da distribuição amostral obtida.
 
 ```{r,echo=FALSE}
-casos <- data.frame(n=rep(c(3,5,10,15,20,25,30,35,40),2),reposicao=c(rep("sim",9),rep("nao",9)))
+casos <- c(3,5,10,15,20,25,30,35,40)
 
-Resultados <- apply(casos,1,function(x) list(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=x[1],reposicao=x[2],B=3000)))
+Resultados <- sapply(casos,function(x) DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,n=x,B=3000))
+MediaAmostral <- colMeans(Resultados)
 
-MediaAmostral <- unlist(lapply(Resultados,function(x) mean(unlist(x))))
-VarianciaAmostral <- unlist(lapply(Resultados,function(x) var(unlist(x))))
-
-BB <- data.frame(casos,MediaAmostral=round(MediaAmostral,2),VarianciaAmostral=round(VarianciaAmostral,2))
+VarianciaAmostral <- apply(Resultados,2,var)
+  
+BB <- data.frame(n=casos,MediaAmostral=round(MediaAmostral,2),VarianciaAmostral=round(VarianciaAmostral,2))
 
 S2 <- XXXXXX # $S^2$
 sigma2 <- XXXXXXX # $\sigma^2$
 
-BB$VarianciaAmostralTeorica <- ifelse(BB$reposicao=="sim",round(xxxxxxx,2),round(xxxxxx,2))
-colnames(BB) <- c("Tamanho da Amostra","Reposição?","Média Amostral: Média das 3000 Médias", "Variância Amostral: Variância das 3000 Médias","Variância Amostral Teórica")
+BB$VarianciaAmostralTeorica <- round(xxxxxxx,2)
+
+colnames(BB) <- c("Tamanho da Amostra","Média Amostral: Média das 3000 Médias", "Variância Amostral: Variância das 3000 Médias","Variância Amostral Teórica")
 library(printr)
 BB
 ```
