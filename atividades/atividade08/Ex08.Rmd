@@ -108,7 +108,7 @@ selectInput("B","Número de amostras:", choices=c(30,100,1000,2000,3000))
 
 
 ```{r,echo=FALSE,message=FALSE}
-renderPlot(hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,reposicao=input$reposicao,B=as.numeric(input$B)),main="Distribuição da Média Amostral",ylab="Frequência", xlab="Média Amostral",col="lightpink"))
+renderPlot(hist(DistribuicaoMediaAmostral(ID=Populacao$id,Y=Populacao$Y,B=as.numeric(input$B)),main="Distribuição da Média Amostral",ylab="Frequência", xlab="Média Amostral",col="lightpink"))
 options=list(
     width="100%", height="100%")
 ```
@@ -128,8 +128,7 @@ VarianciaAmostral <- apply(Resultados,2,var)
   
 BB <- data.frame(n=casos,MediaAmostral=round(MediaAmostral,2),VarianciaAmostral=round(VarianciaAmostral,2))
 
-S2 <- XXXXXX # $S^2$
-sigma2 <- XXXXXXX # $\sigma^2$
+sigma2 <- XXXXXXX # $\sigma^2, variancia populacional$
 
 BB$VarianciaAmostralTeorica <- round(xxxxxxx,2)
 
@@ -139,11 +138,11 @@ BB
 ```
 
 
-### Parte 4
+### Parte 5
 
 Observe os histogramas obtidos para $B=3000$ simulações para cada caso (combinação de tamanho amostral e tipo de seleção de amostra, usando o aplicativo Shiny acima). O que você nota com relação à distribuição de probabilidade da média amostral conforme o tamanho amostral aumenta. Ela se aproxima de alguma distribuição conhecida? Discuta.
 
-### Parte 5
+### Parte 6
 
 Na simulação, fizemos $3000$ amostras de tamanho $n$ e estudamos propriedades do estimador utilizado: a média. Agora, pense no caso real, em que você não conhece a população e irá fazer uma amostra.  Note que, no caso real, só iremos fazer **uma** amostra de tamanho $n$. Portanto, obteremos apenas uma média amostral: aquela da amostra que coletamos. 
 
@@ -152,7 +151,7 @@ Na simulação, fizemos $3000$ amostras de tamanho $n$ e estudamos propriedades 
 * Qual a utilidade de calcularmos a variância teórica a partir de dados simulados? O que podemos aprender, através da variância teórica, sobre a estimativa do parâmetro de interesse? Discuta e coloque no contexto do problema proposto no início do exercício.
 
 
-### Parte 6
+### Parte 7
 
 
 **Teorema Central do Limite:** Para uma amostra aleatória simples $X_{1},...,X_{n}$ coletada de uma população com esperança $\mu$ e variância $\sigma^{2}$, a distribuição amostral de $\bar{X}_{n}$ aproxima-se de uma **distribuição Normal** de média $\mu$ e variância $\frac{\sigma^{2}}{n}$, quando $n$ for suficientemente grande.
