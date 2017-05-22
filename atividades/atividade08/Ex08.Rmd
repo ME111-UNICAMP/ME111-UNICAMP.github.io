@@ -116,7 +116,7 @@ options=list(
 ### Parte 4
 
 Para resumir todos os casos em uma única tabela, iremos simular 3000 amostras para cada caso: combinação de tamanho amostral e tipo de seleção de amostral (com ou sem reposição). Para cada caso, iremos calcular a média das   3000 médias obtidas e também calculamos a variância amostral das 3000 médias obtidas.
-Na disciplina ME430 - Técnicas de Amostragem, vocês irão verificar que a variância amostral teórica é igual $\sigma^2/n$. No caso sem reposição, a variância amostral teórica é $\frac{1}{n}S^2(1-n/N)$. No entanto, quem tiver curiosidade depois, pode verificar para um tamanho de amostra bem reduzido, considerando todos os casos e fazendo os cálculos a partir da distribuição amostral obtida.
+Na disciplina ME430 - Técnicas de Amostragem, vocês irão verificar que a variância amostral teórica é igual $\sigma^2/n$.
 
 ```{r,echo=FALSE}
 casos <- c(3,5,10,15,20,25,30,35,40)
