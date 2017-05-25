@@ -28,5 +28,5 @@ Apenas alunos presentes na hora da chamada poderão entregar os exercícios refe
 
 * Atividade 8 - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade08/Ex08.Rmd.zip)
 
-* Atividade 9 ([slides](http://me414-unicamp.github.io/aulas/slides/parte21/parte21.html#1)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade09/Ex09.zip)
+* Atividade 9 ([slides]atividade09/slides/Aderencia.html)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade09/Ex09.zip)
 
