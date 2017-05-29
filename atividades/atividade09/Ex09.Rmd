@@ -1,0 +1,198 @@
+# Atividade 9
+
+## M&Ms
+
+
+### Introdução
+
+Quando você está comendo um pacote de M&Ms, já sentiu que uma certa cor é mais rara que as outras? 
+
+Nesta atividade, iremos avaliar se os pacotes de M&Ms passam pelo "controle de qualidade" da turma 2017 do curso de Estatística. 
+
+**A turma 2017 fará um esforço tremendo para garantir um controle de qualidade justo e promete não comer nenhum M&M até o final do experimento!**
+
+
+Segundo [informações oficiais da M&M](http://www.scientificameriken.com/candy5.asp), a proporção das cores em cada pacote é:
+
+|  Cor    | Porcentagem  |
+|---------|--------------|
+| azul    |  $24\%$      |
+| marrom  |  $13\%$      |
+| verde   |  $16\%$      |
+| laranja |  $20\%$      |
+| vermelho|  $13\%$      |
+| amarelo |  $14\%$      |
+
+
+Podemos então pensar no total de cores em cada pacote como uma variável aleatória seguindo distribuição Multinomial.
+
+Seja $n_1$ o total de azuis, $n_2$ o total de marrons, $n_3$ o total de verdes, $n_4$ o total de laranjas, $n_5$ o total de vermelhos e $n_6$ o total de amarelos. Seja $p_1$ a proporção de azuis, $p_2$ a proporção de marrons, $p_3$ a proporção de verdes, $p_4$ a proporção de laranjas, $p_5$ a proporção de vermelhos e $p_6$ a proporção de amarelos.
+
+A distribuição conjunta de $n_1, n_2, \ldots , n_6$ tem função de probabilidade dada por:
+
+$$f(n_1, n_2, \ldots , n_6)=\frac{n!}{n_1! \ldots n_k!}p_1^{n_1}p_2^{n_2} \ldots p_k^{n_6}$$
+
+em que $\displaystyle \sum_{i=1}^{6}n_{i}=n$ e com $\displaystyle \sum_{i=1}^{6}p_{i}=1$.
+
+Se designarmos a cor azul como "sucesso" e juntarmos as demais cores numa mesma categoria que designamos "fracasso", a variável aleatória $n_1$ é o número de sucessos em $n$ ensaios de Bernoulli, ou seja,  $n_1 \sim Bin(n,p_1)$.  
+
+Portanto, $\mathbb E(n_1)=np_1$, $Var(n_1)=np_1(1-p_1)$. 
+
+Analogamente aplicando o mesmo argumento a cada $n_i$ temos: 
+$$\mathbb E(n_i)=np_i \quad \mbox{e} \quad Var(n_i)=np_i(1-p_i)$$
+Desta maneira, obtemos a esperança e a variância para a distribuição Multinomial.
+
+### Parte 1
+
+Pegue o pacote de M&M do seu grupo, abra com cuidado e conte o total de chocolates de cada cor. Preencha a informação (só é necessário preencher 1 por grupo) através do [Formulário](https://goo.gl/forms/OjGj7ZRg0J9fZh0S2).
+
+
+```{r,echo=FALSE,warning=FALSE}
+# importando os dados da classe
+library(downloader)
+download("https://docs.google.com/spreadsheets/d/1flkd7ONi6d9OCbeFPnfo9mBNepeZEa1RJLIJ8uzGoeE/pub?gid=1249149930&single=true&output=csv","MMs.csv")
+
+dados <- read.csv("MMs.csv",fileEncoding = 'UTF-8')
+```
+
+
+A tabela a seguir apresenta, para cada cor, os valores observados e os esperados (segundo o Modelo Multinomial e as informações oficiais do fabricante) para os dados apenas do meu grupo:
+
+```{r,echo=FALSE}
+library(printr)
+
+email = "XXXXXXXXXXXX" # email de quem preencheu o formulario para o grupo
+
+dadosGrupo <- dados[XXXXXXXXX,XXXXXXXXX] # apenas os totais do seu grupo
+
+ni <- as.numeric(dadosGrupo) # transformando em vetor
+
+n <- XXXXXXXX # total de chocolates no pacote
+
+cores <- substring(colnames(dadosGrupo),10) # pegando a partir do nome da coluna, a informacao de cor
+
+propFab <- c(XXXXXXXX) # proporcoes segundo o fabricante (siga a ordem das cores do vetor cores acima)
+
+meuGrupo <- data.frame(Cores=cores,Observado=ni,Esperado=XXXXXXXXX)
+
+meuGrupo
+
+```
+
+###  Parte 2
+
+
+Será que as proporções de cores seguem a informação do fabricante? Como testar se os dados "aderem" à afirmação do fabricante? 
+
+#### Teste de aderência
+
+$$\begin{aligned}
+H_0 &: & p_1=p_{01}, \ldots , p_k= p_{0k} \\
+H_a &: & \mbox{ existe pelo menos uma diferença}
+\end{aligned}
+$$
+
+sendo $p_{0i}$ a probabilidade da cor $i$ sob o modelo teórico e $\sum_{i=1}^k p_{0i} =1$.
+
+Se $E_i$ é o total de indivíduos esperados na categoria $i$, quando a hipótese nula $H_0$ é verdadeira, então:
+
+$$E_i = n\times p_{0i}, \quad i=1,2, \ldots, k.$$
+Para quantificar quão distante os frequências observadas estão das frequências esperadas, usamos a seguinte estatística:
+
+**Estatística do Teste**:
+$$\chi^2=\sum_{i=1}^k \frac{(O_i-E_i)^2}{E_i} = \sum^{k}_{i=1}\frac{(n_i-np_{0i})^2}{np_{0i}}$$
+
+Se $H_0$ é verdadeira: $\chi^2 \sim \chi^2_{k-1}$
+
+Em outras palavras, se $H_0$ é verdadeira, a v.a. $\chi^2$ segue uma distribuição aproximadamente Qui-quadrado com $k-1$ graus de liberdade.
+
+**Condição**: Este resultado é válido para $n$ grande e para frequências esperadas maiores ou iguais a 5.
+
+Calcular o **valor-de-p** ou encontrar o **valor crítico**.
+
+**Valor-de-p**: $P(\chi^2_{k-1} \geq \chi^2_{obs}),$ em que $\chi^2_{obs}$ é o valor da estatística do teste calculada a partir dos dados. 
+
+
+
+#### Dados do meu grupo
+
+```{r,echo=FALSE}
+
+estat_test <- sum(((meuGrupo$Observado-meuGrupo$Esperado)^2)/meuGrupo$Esperado) # calcule a estatística do teste
+
+gl <- XXXXXXXX  # graus de liberdade
+
+alfa <- XXXXXX  #nivel de significancia escolhido
+
+xcrit <- XXXXXXXXXX  # valor críitico do teste
+
+pvalor <- XXXXXXXXXX # valor de p
+```
+
+Aplicando o teste nos dados do meu grupo, obtemos `r round(estat_test,2)` como estatística do teste observada. Utilizando a Qui-quadrado com `r gl` graus de liberdade temos que o valor crítico é `r xcrit` (para um nível de significância $\alpha=`r alfa`$) e o p-valor é igual a `r pvalor`.
+
+Conclusão: xxxxxxxxxxx coloque sua conclusao, em termos do controle de qualidade do fabricante.
+
+### Parte 3
+
+A tabela a seguir apresenta oas frequencias observadas e esperadas para cada cor, considerando os dados da classe toda:
+
+```{r,echo=FALSE}
+# coloque aqui o codigo necessario para produzir a tabela
+
+ni <- XXXXXXXXXXX # vetor contendo o total de chocolates para cada cor
+
+n <- XXXXXXXXX # total de chocolates da classe toda
+
+Esperado <- XXXXXXX # valor esperado na classe toda para cada cor, segundo o fabricante
+
+Classe <- data.frame(Cores=cores,Observado=ni,Esperado=Esperado)
+
+Classe
+```
+
+
+
+```{r,echo=FALSE}
+## coloque aqui o codigo necessario para o teste de hipotese
+
+estat_testclasse <- sum(((Classe$Observado-Classe$Esperado)^2)/Classe$Esperado)
+
+gl <- XXXXXX # graus de liberdade
+
+alfa <- XXXXXXXX #nivel de significancia
+
+xcritclasse <- XXXXXXXXX
+
+pvalorclasse <- XXXXXXXXX
+```
+
+Aplicando o teste de aderência para  os dados de toda a classe, obtemos `r round(estat_testclasse,2)` como estatística do teste observada. Utilizando a Qui-quadrado com `r gl` graus de liberdade temos que o valor crítico é `r xcritclasse` (para um nível de significância $\alpha=`r alfa`$)  e o p-valor é igual a `r pvalorclasse`.
+
+Conclusão: xxxxxxxxxxx coloque sua conclusao, em termos do controle de qualidade do fabricante.
+
+
+### Parte 4
+
+Utilizando os dados da classe toda, apresentamos na tabela a seguir as estimativas pontuais e os intervalos de 95\% de confiança para as verdadeiras proporções de cada uma das cores. 
+
+```{r,echo=FALSE}
+
+pihat <- # vetor contendo as proporcoes de cada cor
+
+sepihat <- # vetor contendo o erro padrão da estimativa de cada cor
+
+confianca <- # nivel de confiança
+
+zalpha <- qnorm() # valor de z para calculo do IC
+LI <- # LI do IC
+LS <- # LS do IC
+
+qualidade <- ifelse(XXXXXX,"sim","não") # indica "sim"  se o IC contem o valor oficial, "nao" caso contrario
+
+resultado <- data.frame(Cores=cores,Estimativa=round(pihat,2),LI=round(LI,2),LS=round(LS,2),qualidade=qualidade)
+row.names(resultado) <- NULL
+colnames(resultado) <- c("Cores","Estimativa pontual","Limite Inferior do IC","Limite Superior do IC","Proporção segundo fabricante está no IC?")
+
+resultado
+``` 
