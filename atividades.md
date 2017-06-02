@@ -30,3 +30,4 @@ Apenas alunos presentes na hora da chamada poderão entregar os exercícios refe
 
 * [Atividade 9](atividade09/figura.jpg) ([slides](atividade09/slides/Aderencia.html)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade09/Ex09.Rmd.zip)
 
+* Atividade 10 ([slides](atividade10/slides/PermutationTestMeans.html)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade10/Ex10.Rmd.zip)
