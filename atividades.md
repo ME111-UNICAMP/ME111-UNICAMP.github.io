@@ -32,4 +32,4 @@ Apenas alunos presentes na hora da chamada poderão entregar os exercícios refe
 
 * Atividade 10 ([slides](atividade10/slides/PermutationTestMeans.html)) - entregar pelo Moodle (em Grupo): [versão RMarkdown para entrega](atividade10/Ex10.Rmd.zip)
 
-* Trabalho Final: [enunciado](http://www.ime.unicamp.br/~nancy/Cursos/me110/projeto_final_mod.pdf) e [versão RMarkdown para entrega](TrabalhoFinal/TrabalhoFinal.Rmd)
+* Trabalho Final: [enunciado](http://www.ime.unicamp.br/~nancy/Cursos/me110/projeto_final_mod.pdf) e [versão RMarkdown para entrega](TrabalhoFinal/TrabalhoFinal.Rmd.zip)
