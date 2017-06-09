@@ -1,0 +1,158 @@
+\documentclass[12pt]{article}
+
+\begin{document}
+
+\begin{center}
+{\bf Projeto final ME-110} \\
+Entrega: 26/06/2017 \\
+\end{center}
+\vskip1cm
+
+\begin{itemize}
+\item O projeto final constir\'a de 2 partes. 
+
+\item Este trabalho final pode ser realizado em equipes de at\'e 4 pessoas. Os alunos com notas menores que 5 na P1 somente poder\~ao fazer grupo com alunos com notas n\~ao mais do que 30 pontos aparte. Somente um relat\'{o}rio deve ser entregue (por favor, n\~{a}o se esque\c{c}am de colocar todos os nomes dos membros da equipe no relat\'{o}rio). A equipe deve se manter a mesma para as duas partes do trabalho final. 
+
+\item Os relat\'{o}rios devem ser submetidos de duas formas: eletronicamente (arquivo base TrabalhoFinal.Rmd e anexos necess\'arios) e impresso (.pdf gerado a partir do .Rmd). Por favor,  fa\c{c}am relat\'{o}rios leg\'{\i}veis e caprichados. As notas ser\~{a}o baseadas em sua criatividade, adequabilidade das t\'{e}cnicas estat\'{\i}sticas, interpreta\c{c}\~{a}o dos resultados e apresenta\c{c}\~{a}o. Uso eficiente de cores, gr\'{a}ficos e ilustra\c{c}\~{o}es engrandecem um relat\'{o}rio.
+\end{itemize}
+
+\vskip1cm
+
+{\large \bf Parte 1: Mega Sena} \\
+
+Quando analisamos os dados da Mega-Sena, cada retirada n\~ao pode ser considerada um ensaio multinomial pois a cada sorteio temos 6 bolas
+retiradas {\bf sem} reposi\c c\~ao. Sendo assim, usar o teste qui-quadrado de bondade de ajuste n\~ao \'e a an\'alise correta. \\
+
+Para analisar estes dados vamos usar um procedimento para calcular o
+p-valor baseado em simula\c c\~oes. \\
+
+Continuamos com a hip\'otese nula de que todos os resultados s\~ao
+igualmente prov\'aveis. Para verificar isto escolha uma amostra aleat\'oria simples de $N=1000$ sorteios da
+Mega-Sena (seja bastante explicito em seu trabalho como  foram escolhidos os
+sorteios). Neste caso, como em cada sorteio seleciona-se 6
+bolas, sua amostra consiste em $n = 6 N$ observa\c c\~oes (n\~ao
+independentes!). \\
+
+Utilize como estat\'\i stica do teste:
+$$W = \sum_{j=1}^{60} |O_j - E_j|,$$
+onde $E_j = n/60$. 
+
+Use os seus dados para calcular o valor observado da estat\'\i stica
+do teste $w^*_{obs}$. 
+
+O problema \'e que neste caso n\~ao sabemos a distribui\c c\~ao
+aproximada de $W$ nem mesmo sob a hip\'otese nula. \\
+
+{\bf Simula\c c\~ao:} 
+\begin{itemize}
+\item Cada rodada $l$ ({\it run}) consistir\'a em $N$ retiradas de 6
+  n\'umeros do conjunto $\{1,2,\ldots,60\}$ sem reposi\c c\~ao. 
+\item Cada rodada apresentar\'a $n_l = 6N$ n\'umeros. 
+\item Usar estes $n_l$ n\'umeros para calcular $w^*_{l}$.
+\item Repetir o procedimento $M$ vezes ($l=1,\ldots,M$). 
+\item  Contar quantas vezes obteve-se  $w^*_{l} > w^*_{obs}$ (= $x_{simul}$). 
+\item Usar $\hat{p}_{simul} = x_{simul}/M$ como estimativa para o p-valor.
+\item Construir um IC de n\'\i vel $(1-\alpha)100$\% para o p-valor
+  considerando que cada rodada \'e um ensaio de Bernoulli.
+\end{itemize}
+
+Utilize um histograma para apresentar o resultado das simula\c c\~oes. Indique no histograma o valor observado da estat\'istica. 
+
+Apresente a estimativa para o p-valor.
+
+Com base na simula\c c\~ao acima chegar \`a conclus\~ao se todos os
+n\'umeros da Mega-Sena tem a mesma chance de ocorrer. \\
+
+
+\pagebreak
+
+
+{\large \bf Parte 2: Testes de permuta\c c\~ao:} Excolha um dos dois problemas abaixo: \\
+
+{\bf 1.- Teste de Fisher para mais do que dois tratamentos:} Vimos em classe que no teste de homogeneidade, a aproxima\c c\~ao atrav\' es da distribui\c c\~ao quiquadrado
+somente pode ser aplicada quando todos os valores esperados s\~ao maiores que 5.
+No caso de experimentos completamente aleatorizados e tabelas 2x2 podemos
+aplicar o teste exato de Fisher. O objetivo desta parte \'e realizar o teste exato de Fisher para experimentos completamente aleatorizados com 3 tratamentos
+e duas respostas. Neste caso, n\~ao \'e poss\'\i vel realizar o teste exato e
+o p-valor pode ser obtido atrav\'es de simula\c c\~ao.
+
+Realize um experimento completamente aleatorizado (CRD) balanceado
+com 3 tratamentos e duas respostas para estudar algum assunto de seu interesse.
+Escolha 30 unidades experimentais e aloque 10 unidades experimentais
+para cada tratamento.
+
+Seu relat\'orio, al\'{e}m de analizar completamente o problema,
+deve responder as seguintes quest\~{o}es: 
+\begin{itemize}
+\item Por que este assunto te interessa?
+\item Qual \'{e} o seu estudo?
+\item Alguma coisa surpreendente aconteceu enquanto da coleta de
+  dados?
+\item Verifica\c{c}\~{a}o de todas as suposi\c{c}\~{o}es feitas.
+\end{itemize}
+
+A seguir, seu relat\'orio deve apresentar e resumir seus dados usando tabelas e gr\'afixos. Realize um teste de Fisher para a alternativa de que as popula\c c\~oes n\~ao s\~ao homog\^eneas.
+Utilize como estat\'\i stica do teste:
+$$ W = \sum_{i=1}^{3} \sum_{j=1}^2 \frac{(O_{ij} - E_{ij})^2}{E_{ij}}.$$
+onde $E_{ij} = n_i m_j/n$.
+O problema \'e que neste caso {\bf n\~ao} sabemos a distribui\c c\~ao aproximada de $W$
+nem mesmo sob a hip\'otese nula. ({\bf N\~AO} utilize a aproxima\c c\~ao qui-quadrado,  voc\^e deve encontrar esta
+distribui\c c\~ao atrav\'es de simula\c c\~oes).
+
+{\bf Simula\c c\~ao:} 
+\begin{itemize}
+\item Cada rodada $l$ ({\it run}) consistir\'a em em montar uma tabela de conting\^encia
+3 x 2 mantendo as marginais  fixas. 
+\item Cada rodada $l$ apresentar\'a uma tabela. 
+\item Usar esta tabela para calcular $w^*_{l}$.
+\item Repetir o procedimento $M$ vezes ($l=1,\ldots,M$). 
+\item Contar quantas vezes obteve-se  $w^*_{l} > w^*_{obs}$ (= $x_{simul}$). 
+\item Usar $\hat{p}_{simul} = x_{simul}/M$ como estimativa para o p-valor.
+\item Construir um IC de n\'\i vel $(1-\alpha)100$\% para o p-valor
+  considerando que cada rodada \'e um ensaio de Bernoulli.
+\end{itemize}
+
+{\bf 2.- Teste de permuta\c c\~ao para compara\c c\~ao de duas m\'edias:} 
+
+Realize um experimento completamente aleatorizado (CRD) balanceado com 2 tratamentos e uma reposta num\'erica. Escolha 20 unidades experimentais e aloque 10 unidades experimentais para cada tratamento.
+
+Seu relat\'orio, al\'{e}m de analizar completamente o problema,
+deve responder as seguintes quest\~{o}es: 
+\begin{itemize}
+\item Por que este assunto te interessa?
+\item Qual \'{e} o seu estudo?
+\item Alguma coisa surpreendente aconteceu enquanto da coleta de
+  dados?
+\item Verifica\c{c}\~{a}o de todas as suposi\c{c}\~{o}es feitas.
+\end{itemize}
+
+A seguir, seu relat\'orio deve apresentar e resumir seus dados usando gr\'aficos. Realize um teste de permuta\c c\~ao para testar se a m\'edia das duas sub-popula\c c\~oes \'e a mesma,  contra a alternativa de que n\~ao s\~ao as mesmas. Utilize como estat\'\i stica  do teste:
+$$ W = |\bar{X} - \bar{Y}|$$
+onde $\bar{X}$ e $\bar{Y}$ s\~ao as m\'edias amostras das respostas dos indiv\'\i duos alocados ao tratamento 1 e tratamento 2 respectivamente. 
+O problema \'e que neste caso {\bf n\~ao} sabemos a distribui\c c\~ao aproximada de $W$
+nem mesmo sob a hip\'otese nula. (N\~AO utilize a aproxima\c c\~ao normal
+para a distribui\c c\~ao da estat\'\i stica do teste sob H0, voc\^e deve encontrar esta
+distribui\c c\~ao atrav\'es de simula\c c\~oes.) \\
+
+{\bf Simula\c c\~ao:} 
+\begin{itemize}
+\item Cada rodada $l$ ({\it run}) consistir\'a em permutar os 20 valores mantendo dois grupos de 10 respostas. 
+\item Cada rodada $l$ apresentar\'a duas m\'edias $\bar{X}_l$ e $\bar{Y}_l$. 
+\item Usar estas m\'edias para calcular $w^*_{l}$.
+\item Repetir o procedimento $M$ vezes ($l=1,\ldots,M$). 
+\item  Contar quantas vezes obteve-se  $w^*_{l} > w^*_{obs}$ (= $x_{simul}$) (ou a estat\'\i stica e a decis\~ao adequados se usar outra  hip\'otese alternativa). 
+\item Usar $\hat{p}_{simul} = x_{simul}/M$ como estimativa para o p-valor.
+\item Construir um IC de n\'\i vel $(1-\alpha)100$\% para o p-valor
+  considerando que cada rodada \'e um ensaio de Bernoulli.
+\end{itemize}
+
+
+\end{document}
+
+
+
+
+
+
+
+

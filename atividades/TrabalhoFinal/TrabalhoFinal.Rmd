@@ -1,0 +1,86 @@
+---
+title: "Trabalho Final"
+author: "RA Sicrano Beltrido, RA Beltrano Sicranildo"
+date: "26/06/2017"
+output:
+  pdf_document
+---
+
+
+## Parte 1: Mega Sena
+
+
+
+```{r megasena, echo=F}
+#### coloque aqui o codigo para a Parte 1
+
+```
+
+
+XXXXXXX Seu texto de resposta, deve ser claro e conciso, devendo incluir, pelo menos, as informações abaixo:
+
+XXXXXXX Obtenha os dados e calcule $w_{obs}*^*$.
+
+XXXXXXX Apresente o resultado das simulações através de um histograma. No mesmo gráfico, indique com uma reta vertical com alguma cor, $w_{obs}*^*$. Apresente estatísticas sumárias do resultado das simulações que julgar relevantes.
+
+XXXXXXX Coloque a p-valor?
+
+XXXXXXXXX Coloque aqui suas conclusoes
+
+XXXXXX Observação: as respostas numéricas do relatório devem ser todas originadas através de comandos, nunca coloque a resposta numérica diretamente. Por exemplo, não diga que a média é 53.6, mas sim use `r mean(variaveldeinteresse)`, por exemplo.
+
+
+## Parte 2: Teste de Permutação
+
+
+### Introdução
+
+XXXXX Descreva aqui o problema escolhido, qual o interesse, etc... (nessa seção você deverá responder: Por que este assunto te interessa? Qual é o seu estudo?)
+
+
+### Planejamento do Experimento e Coleta dos Dados
+
+
+XXXXXX Descreva aqui como o experimento foi planejado, tamanho amostral, tratamentos, aleatorização, coleta dos dados, etc....
+
+
+
+```{r permutacao, echo=F}
+#### coloque aqui o codigo utilizado para o planejamento do experimento e coleta dos dados
+
+
+```
+
+XXXXXX Mencione problemas durante a coleta, caso tenham ocorrido
+
+
+### Análise Descritiva
+
+```{r permutacao2, echo=F}
+#### coloque aqui o codigo utilizado para a analise descritiva
+
+
+```
+
+XXXXXXX Apresente tabelas, gráficos e estatísticas sumárias necessárias para resumir os resultados do seu experimento
+
+### Teste de Hipóteses
+
+
+```{r permutacao3, echo=F}
+#### coloque aqui o codigo utilizado para a simulacao/teste de hipotese/pvalor/etc...
+
+
+```
+
+
+XXXXXXX Descreva o teste de hipotese de interesse e o procedimento utilizado (defina bem as hipoteses, definindo claramente os parametros e o nível de significancia, indique a estatística do teste, a distribuiçao sob  H_0, a estatística observada, o p-valor). Apresente o resultado das simulacoes (histograma) e compare com a estatística observada (linha destaque no histograma), faça os calculos necessários para o p-valor, IC para o p-valor e apresente os resultados do teste.
+
+
+### Conclusão 
+
+XXXXXXXX De acordo com o p-valor, nível de significancia escolhido, qual sua conclusao?
+
+
+XXXXXX Observação: as respostas numéricas do relatório devem ser todas originadas através de comandos, nunca coloque a resposta numérica diretamente. Por exemplo, não diga que a média é 53.6, mas sim use `r mean(variaveldeinteresse)`, por exemplo.
+
