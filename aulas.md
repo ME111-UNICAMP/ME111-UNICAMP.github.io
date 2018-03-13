@@ -27,7 +27,7 @@ Para os alunos que desejarem instalar em suas máquinas pessoais, seguem instru�
 
 Passo-a-passo em [vídeo](https://www.youtube.com/watch?v=9Ja5HIRs_kI) feito pelo [Prof. Flavio Barros](https://www.rmining.net/).
 
-**Importante**: a codificação de caracteres de acentuação é diferente quando usamos sistema Windows, Mac, Linux. Portanto, para não ter problema, siga os passos a seguir ANTES de abrir algum documendo .Rmd ou .Rnw no RStudio. 
+**Importante**: a codificação de caracteres de acentuação é diferente quando usamos sistema Windows, Mac, Linux. Portanto, para não ter problema, siga os passos a seguir ANTES de abrir algum documento .Rmd ou .Rnw no RStudio. 
 
 
 * Abra o RStudio
