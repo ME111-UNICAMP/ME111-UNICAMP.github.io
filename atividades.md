@@ -5,9 +5,8 @@ permalink: /atividades/
 ---
 
 
-As atividades deverão ser entregues através do Moodle. Alguns exercícios deverão ser feitos individualmente, outros em grupos definidos no início da aula. 
+As atividades deverão ser entregues através do Moodle. Prazos, se individual ou em grupo, estarão informados no Moodle.
 
-Apenas alunos presentes na hora da chamada poderão entregar os exercícios referentes àquela aula.
 
 
 * [Atividade 1 - sala de aula](atividade01/labintro.pdf)
